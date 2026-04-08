@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISITE</title>
+    <link rel="stylesheet" href="./style.css">
+    
+</head>
+
+<body>
+    <div class="C1">
+        <div class="header">
+            <h2 class="titulo">ISITE FINANÇAS</h2>
+            <p id="data-atual"></p>
+        </div>
+
+        <div class="resumo">
+            <div class="card">
+                <h3>Saldo</h3>
+                <p>R$ 0,00</p>
+            </div>
+
+            <div class="card">
+                <h3>Entrada</h3>
+                <p>R$ 0,00</p>
+            </div>
+
+            <div class="card">
+                <h3>Saída</h3>
+                <p>R$ 0,00</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="C2">
+        <div class="header2">
+            <h4 class="NT">Nova Transação</h4>
+        </div>
+
+        <div class="inputs">
+            <div class="Desc">
+                <p>Descrição: </p>
+                <input type="text" id="descricao" placeholder="Descrição">
+            </div>
+            
+            <div class="Vlr">
+                <p>Valor:</p>
+                <div class="inputV">
+                    <span class="prefix">R$</span>
+                    <input type="number" id="valor" placeholder="Valor">
+                </div>
+                
+                <p>Tipo:</p>
+                <select id="tipo">
+                    <option value="entrada">Entrada</option>
+                    <option value="saida">Saída</option>
+                </select>
+            </div>
+            
+            <div class="Cat">
+
+                <p>Categoria:</p>
+                <select id="Categoria">
+                    <option value="alimentacao">Alimentação</option>
+                    <option value="lazer">Lazer</option>
+                    <option value="namorada">Namorada</option>
+                    <option value="transporte">Transporte</option>
+                    <option value="estudos">Estudos</option>
+                </select>
+
+                <p>Data: </p>
+                <input type="date" id="data">
+            </div>
+            <div class="botao">
+                <button id="adicionar">Adicionar</button>
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="./script.js"></script>
+</body>
+</html>
