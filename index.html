@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ISITE</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./src/style.css">
     
 </head>
 
@@ -18,17 +18,17 @@
         <div class="resumo">
             <div class="card">
                 <h3>Saldo</h3>
-                <p>R$ 0,00</p>
+                <p id="saldo">R$ 0,00</p>
             </div>
 
             <div class="card">
                 <h3>Entrada</h3>
-                <p>R$ 0,00</p>
+                <p id="entrada">R$ 0,00</p>
             </div>
 
             <div class="card">
                 <h3>Saída</h3>
-                <p>R$ 0,00</p>
+                <p id="saida">R$ 0,00</p>
             </div>
         </div>
     </div>
@@ -36,6 +36,10 @@
     <div class="C2">
         <div class="header2">
             <h4 class="NT">Nova Transação</h4>
+
+            <div class="icon">
+                <button id="lixo"><img class="imgLixo" src="./src/assets/icons/lixo.png"></button>
+            </div>
         </div>
 
         <div class="inputs">
@@ -72,13 +76,22 @@
                 <p>Data: </p>
                 <input type="date" id="data">
             </div>
+
+        </div>
+
+        <div class="buttonPart">
             <div class="botao">
                 <button id="adicionar">Adicionar</button>
             </div>
+
+            <div class="icon">
+                <button id="botaoTabela" > <img class="iconTabela" src="./src/assets/icons/iconTabela.webp"></button>
+            </div>
         </div>
+        
     </div>
     
 
-    <script src="./script.js"></script>
+    <script src="./src/script.js"></script>
 </body>
 </html>
