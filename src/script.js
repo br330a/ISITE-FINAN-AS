@@ -1,13 +1,14 @@
 const hoje = new Date();
-
-document.getElementById("data-atual").innerText = hoje.toLocaleDateString("pt-BR")
-
 const descricao = document.getElementById("descricao");
 const valor = document.getElementById("valor");
 const tipo = document.getElementById("tipo");
 const categoria = document.getElementById("categoria");
 const data = document.getElementById("data");
 const botao = document.getElementById("adicionar");
+
+document.getElementById("data-atual").innerText = hoje.toLocaleDateString("pt-BR")
+
+
 
 let transacoes = [];
 
