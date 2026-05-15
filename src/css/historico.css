@@ -1,0 +1,68 @@
+.header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background-color: #F3f4f6;
+    justify-content: center;
+
+    border-radius: 8px;
+}
+
+.botaoVoltar {
+    position: absolute;
+    left: 20px;
+    width: 45px;
+    height: 45px;
+
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+
+    background-color: #73a1fe;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.botaoVoltar:hover {
+    transform: scale(1.05);
+    background-color: #5d8df0;
+}
+.btnVoltar {
+    width: 26px;
+    height: 26px;
+}
+
+
+.historico {
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: #F3f4f6;
+    color: #3e4666;
+
+    padding: 12px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #E5E7EB;
+    font-family: 'Poppins', sans-serif;
+}
+
+tr:hover {
+    background-color: #F9FAFB;
+}
