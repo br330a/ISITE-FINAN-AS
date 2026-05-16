@@ -1,4 +1,5 @@
 const historicoBody = document.getElementById("historico-body");
+const pesquisa = document.getElementById("pesquisa");
 
 let transacoes = [];
 
@@ -9,9 +10,9 @@ function carregarDados() {
     }
 }
 
-function atualizarTabela() {
+function atualizarTabela(lista) {
     historicoBody.innerHTML = "";
-    transacoes.forEach(function(transacao, index){
+    lista.forEach(function(transacao, index){
 
         historicoBody.innerHTML += `
             <tr>
@@ -33,7 +34,7 @@ function atualizarTabela() {
 
 
 carregarDados();
-atualizarTabela();
+atualizarTabela(transacoes);
 
 function deletarTransacao(index) {
     transacoes.splice(index, 1);
@@ -44,3 +45,14 @@ function deletarTransacao(index) {
     );
     atualizarTabela();
 }
+
+
+pesquisa.addEventListener("input", function(){
+    const texto = pesquisa.value.toLowerCase();
+    const filtradas = transacoes.filter(function(transacao){
+        return transacao.descricao
+            .toLowerCase()
+            .includes(texto);
+    });
+    atualizarTabela(filtradas);
+})

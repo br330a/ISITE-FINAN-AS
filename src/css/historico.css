@@ -99,3 +99,16 @@ tr:nth-child(even) {
     background-color: #dc2626;
     transform: translateY(-3px);
 }
+
+.pesquisa {
+    margin-bottom: 15px;
+}
+
+.pesquisa input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    border: 1px solid #d1d5db;
+}
