@@ -58,6 +58,37 @@ body {
     transition: 0.2s;
 }
 
+.card-Saldo {
+    background: linear-gradient(135deg, #4b6c96, #3B82F6);
+    transform: scale(1.05);
+
+    box-shadow: 0 6px 14px rgba(59, 130, 246, 0.25);
+
+    width: 200px;
+    border-radius: 12px;
+    text-align: center;
+
+    transition: 0.2s;
+}
+
+.card-Saldo:hover {
+    transform: translateY(-4px);
+}
+
+.card-Saldo h3 {
+    color: white;
+    font-family: 22px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+
+
+.card-Saldo p {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
 .card:hover {
     transform: translateY(-4px);
 }

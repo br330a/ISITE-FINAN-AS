@@ -66,3 +66,7 @@ td {
 tr:hover {
     background-color: #F9FAFB;
 }
+
+tr:nth-child(even) {
+    background-color: #dfdede;
+}
