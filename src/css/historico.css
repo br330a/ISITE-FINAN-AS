@@ -68,5 +68,34 @@ tr:hover {
 }
 
 tr:nth-child(even) {
-    background-color: #dfdede;
+    background-color: #f3f0f0;
+}
+
+.entrada {
+    color: #16a34b;
+    font-weight: bold;
+}
+
+.saida {
+    color: #dc2626;
+    font-weight: bold;
+}
+
+.btnExcluir {
+    background-color: #ef4444;
+    color: white;
+
+    border: none;
+    border-radius: 6px;
+
+    padding: 8px 10px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.btnExcluir:hover {
+    background-color: #dc2626;
+    transform: translateY(-3px);
 }
