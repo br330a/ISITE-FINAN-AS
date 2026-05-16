@@ -40,7 +40,47 @@
 
 .historico {
     padding: 20px;
+    display: flex;
+    gap: 20px;
 }
+
+.slidebar {
+    width: 220px;
+    background-color: #f9fafb;
+    border-radius: 10px;
+    padding: 20px;
+    height: fit-content;
+}
+
+.slidebar h3 {
+    margin-top: 0;
+    color: #2e4666;
+    font-family: 'Poppins', sans-serif;
+}
+
+.filtroGrupo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.filtroGrupo label {
+    margin-bottom: 8px;
+    font-family: 'Poppins', sans-serif;
+    color: #2e4666;
+}
+
+.filtroGrupo select {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    font-size: 15px;
+}
+
+.tabelaArena {
+    flex: 1;
+}
+
 
 table {
     width: 100%;
@@ -112,3 +152,6 @@ tr:nth-child(even) {
     box-sizing: border-box;
     border: 1px solid #d1d5db;
 }
+
+
+

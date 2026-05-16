@@ -1,6 +1,12 @@
 const historicoBody = document.getElementById("historico-body");
 const pesquisa = document.getElementById("pesquisa");
 
+const filtroTodos = document.getElementById("filtroTodos");
+
+const filtroEntrada = document.getElementById("filtroEntrada");
+
+const filtroSaida = document.getElementById("filtroSaida");
+
 let transacoes = [];
 
 function carregarDados() {
@@ -55,4 +61,23 @@ pesquisa.addEventListener("input", function(){
             .includes(texto);
     });
     atualizarTabela(filtradas);
-})
+});
+
+filtroTodos.addEventListener("click", function(){
+    atualizarTabela(transacoes);
+});
+
+filtroEntrada.addEventListener("click", function(){
+    const entradas = transacoes.filter(function(transacao){
+        return transacao.tipo === "entrada";
+    });
+    atualizarTabela(entradas);
+});
+
+filtroSaida.addEventListener("click", function(){
+    const saidas = transacoes.filter(function(transacao){
+        return transacao.tipo === "saida";
+    });
+    atualizarTabela(saidas);
+});
+
