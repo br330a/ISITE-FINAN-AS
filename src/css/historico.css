@@ -1,0 +1,157 @@
+.header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background-color: #F3f4f6;
+    justify-content: center;
+
+    border-radius: 8px;
+}
+
+.botaoVoltar {
+    position: absolute;
+    left: 20px;
+    width: 45px;
+    height: 45px;
+
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+
+    background-color: #73a1fe;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.botaoVoltar:hover {
+    transform: scale(1.05);
+    background-color: #5d8df0;
+}
+.btnVoltar {
+    width: 26px;
+    height: 26px;
+}
+
+
+.historico {
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.slidebar {
+    width: 220px;
+    background-color: #f9fafb;
+    border-radius: 10px;
+    padding: 20px;
+    height: fit-content;
+}
+
+.slidebar h3 {
+    margin-top: 0;
+    color: #2e4666;
+    font-family: 'Poppins', sans-serif;
+}
+
+.filtroGrupo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.filtroGrupo label {
+    margin-bottom: 8px;
+    font-family: 'Poppins', sans-serif;
+    color: #2e4666;
+}
+
+.filtroGrupo select {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    font-size: 15px;
+}
+
+.tabelaArena {
+    flex: 1;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: #F3f4f6;
+    color: #3e4666;
+
+    padding: 12px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #E5E7EB;
+    font-family: 'Poppins', sans-serif;
+}
+
+tr:hover {
+    background-color: #F9FAFB;
+}
+
+tr:nth-child(even) {
+    background-color: #f3f0f0;
+}
+
+.entrada {
+    color: #16a34b;
+    font-weight: bold;
+}
+
+.saida {
+    color: #dc2626;
+    font-weight: bold;
+}
+
+.btnExcluir {
+    background-color: #ef4444;
+    color: white;
+
+    border: none;
+    border-radius: 6px;
+
+    padding: 8px 10px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.btnExcluir:hover {
+    background-color: #dc2626;
+    transform: translateY(-3px);
+}
+
+.pesquisa {
+    margin-bottom: 15px;
+}
+
+.pesquisa input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    border: 1px solid #d1d5db;
+}
+
+
+
