@@ -7,7 +7,8 @@ body {
 ========================= */
 
 .C1 {
-    width: 800px;
+    width: 90%;
+    max-width: 840px;
     margin: 40px auto;
     border-radius: 10px;
     background-color: white;
@@ -111,7 +112,8 @@ body {
 ========================= */
 
 .C2 {
-    width: 800px;
+    width: 90%;
+    max-width: 840px;
     margin: 0 auto;
     background-color: white;
     border-radius: 10px;
@@ -370,4 +372,29 @@ body {
 .iconTabela {
     width: 24px;
     height: 24px;
+}
+
+
+@media (max-width: 768px) {
+    .resumo {
+        flex-direction: column;
+        align-items: center;
+
+    .Desc, Vlr, Cat {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .botao button {
+        width: 100%;
+    }
+
+    .tabelaArena {
+        overflow-x: auto; /*cria scroll*/
+    }
+
+    .historico {
+        flex-direction: column;
+    }
+    }
 }

@@ -1,11 +1,10 @@
 const historicoBody = document.getElementById("historico-body");
+
+const filtroTipo = document.getElementById("filtroTipo");
+
+const filtroCategoria = document.getElementById("filtroCategoria");
+
 const pesquisa = document.getElementById("pesquisa");
-
-const filtroTodos = document.getElementById("filtroTodos");
-
-const filtroEntrada = document.getElementById("filtroEntrada");
-
-const filtroSaida = document.getElementById("filtroSaida");
 
 let transacoes = [];
 
@@ -16,9 +15,30 @@ function carregarDados() {
     }
 }
 
-function atualizarTabela(lista) {
+function atualizarTabela() {  
     historicoBody.innerHTML = "";
-    lista.forEach(function(transacao, index){
+
+    const tipoSelecionado = filtroTipo.value;
+    const categoriaSelecionada = filtroCategoria.value;
+    const textoPesquisa = pesquisa.value.toLowerCase();
+
+    const transacoesFiltradas = transacoes.filter(function(transacao){
+        const filtroTipoOK = 
+            tipoSelecionado === "todos" || transacao.tipo === tipoSelecionado;
+        
+        const filtroCategoriaOK =
+            categoriaSelecionada === "todos" || transacao.categoria === categoriaSelecionada;
+        
+        const filtroPesquisaOK =
+            transacao.descricao.toLowerCase().includes(textoPesquisa);
+
+        return (
+            filtroTipoOK && filtroCategoriaOK && filtroPesquisaOK
+        );
+    });
+
+
+    transacoesFiltradas.forEach(function(transacao, index){
 
         historicoBody.innerHTML += `
             <tr>
@@ -40,7 +60,7 @@ function atualizarTabela(lista) {
 
 
 carregarDados();
-atualizarTabela(transacoes);
+atualizarTabela();
 
 function deletarTransacao(index) {
     transacoes.splice(index, 1);
@@ -53,31 +73,11 @@ function deletarTransacao(index) {
 }
 
 
-pesquisa.addEventListener("input", function(){
-    const texto = pesquisa.value.toLowerCase();
-    const filtradas = transacoes.filter(function(transacao){
-        return transacao.descricao
-            .toLowerCase()
-            .includes(texto);
-    });
-    atualizarTabela(filtradas);
-});
 
-filtroTodos.addEventListener("click", function(){
-    atualizarTabela(transacoes);
-});
 
-filtroEntrada.addEventListener("click", function(){
-    const entradas = transacoes.filter(function(transacao){
-        return transacao.tipo === "entrada";
-    });
-    atualizarTabela(entradas);
-});
+filtroTipo.addEventListener("change", atualizarTabela);
+filtroCategoria.addEventListener("change", atualizarTabela);
+pesquisa.addEventListener("input", atualizarTabela);
 
-filtroSaida.addEventListener("click", function(){
-    const saidas = transacoes.filter(function(transacao){
-        return transacao.tipo === "saida";
-    });
-    atualizarTabela(saidas);
-});
+
 
