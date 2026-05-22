@@ -90,7 +90,7 @@ table {
 }
 
 th {
-    background-color: #F3f4f6;
+    background-color: #cacaca;
     color: #3e4666;
 
     padding: 12px;
@@ -110,7 +110,7 @@ tr:hover {
 }
 
 tr:nth-child(even) {
-    background-color: #f3f0f0;
+    background-color: #f8f5f5;
 }
 
 .entrada {
@@ -144,6 +144,8 @@ tr:nth-child(even) {
 
 .pesquisa {
     margin-bottom: 15px;
+    display: flex;
+    gap: 10px;
 }
 
 .pesquisa input {
@@ -162,6 +164,24 @@ tr:nth-child(even) {
     font-size: 15px;
 }
 
+.linhaMes td {
+    background-color: #4679bc;
+    color: #ffffff;
+
+    font-weight: bold;
+    font-size: 18px;
+
+    text-align: left;
+
+    padding: 14px;
+
+}
+
+.LUPA {
+    width: 30px;
+    height: 30px;
+    margin-top: 6px;
+}
 @media (max-width: 768px) {
 
     .historico {
@@ -181,4 +201,6 @@ tr:nth-child(even) {
         width: 95%;
     }
 }
+
+
 

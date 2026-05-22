@@ -9,6 +9,8 @@ const pesquisa = document.getElementById("pesquisa");
 const dataInicial = document.getElementById("dataInicial");
 const dataFinal = document.getElementById("dataFinal");
 
+
+
 let transacoes = [];
 
 function carregarDados() {
@@ -16,6 +18,30 @@ function carregarDados() {
     if(dados) {
         transacoes = JSON.parse(dados);
     }
+}
+
+
+function formatarMes(data) {
+    const meses = [
+        "Janeiro",
+        "Fevereiro",
+        "Março",
+        "Abril",
+        "Maio",
+        "Junho",
+        "Julho",
+        "Agosto",
+        "Setembro",
+        "Outubro",
+        "Novembro",
+        "Dezembro"
+    ];
+
+    const partes = data.split("-");
+    const ano = partes[0];
+    const mes = Number(partes[1]) - 1;
+
+    return `${meses[mes]} ${ano}`;
 }
 
 function atualizarTabela() {  
@@ -51,8 +77,27 @@ function atualizarTabela() {
         );
     });
 
+    transacoesFiltradas.sort(function(a, b){
+        return new Date(b.data) - new Date(a.data);  //coloca mais recentes primeiro
+    });
+
+    let mesAtual = "";
 
     transacoesFiltradas.forEach(function(transacao, index){
+
+        const mesTransacao = formatarMes(transacao.data);
+
+        if(mesTransacao !== mesAtual) {
+            mesAtual = mesTransacao;
+
+            historicoBody.innerHTML += `
+                <tr class="linhaMes">
+                    <td colspan="6">
+                        ${mesAtual}
+                    </td>
+                </tr>
+            `;
+        }
 
         historicoBody.innerHTML += `
             <tr>
