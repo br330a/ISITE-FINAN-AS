@@ -6,6 +6,9 @@ const filtroCategoria = document.getElementById("filtroCategoria");
 
 const pesquisa = document.getElementById("pesquisa");
 
+const dataInicial = document.getElementById("dataInicial");
+const dataFinal = document.getElementById("dataFinal");
+
 let transacoes = [];
 
 function carregarDados() {
@@ -22,7 +25,11 @@ function atualizarTabela() {
     const categoriaSelecionada = filtroCategoria.value;
     const textoPesquisa = pesquisa.value.toLowerCase();
 
+    const dataInicialValue = dataInicial.value;
+    const dataFinalValue = dataFinal.value;
+
     const transacoesFiltradas = transacoes.filter(function(transacao){
+
         const filtroTipoOK = 
             tipoSelecionado === "todos" || transacao.tipo === tipoSelecionado;
         
@@ -32,8 +39,15 @@ function atualizarTabela() {
         const filtroPesquisaOK =
             transacao.descricao.toLowerCase().includes(textoPesquisa);
 
+
+        const filtroDataInicialOK =
+            !dataInicialValue || transacao.data >= dataInicialValue;
+
+        const filtroDataFinalOK =
+            !dataFinalValue || transacao.data <= dataFinalValue;
+
         return (
-            filtroTipoOK && filtroCategoriaOK && filtroPesquisaOK
+            filtroTipoOK && filtroCategoriaOK && filtroPesquisaOK && filtroDataInicialOK && filtroDataFinalOK
         );
     });
 
@@ -73,11 +87,12 @@ function deletarTransacao(index) {
 }
 
 
-
-
 filtroTipo.addEventListener("change", atualizarTabela);
 filtroCategoria.addEventListener("change", atualizarTabela);
 pesquisa.addEventListener("input", atualizarTabela);
+
+dataInicial.addEventListener("change", atualizarTabela);
+dataFinal.addEventListener("change", atualizarTabela);
 
 
 

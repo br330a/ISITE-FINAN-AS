@@ -44,6 +44,8 @@
     gap: 20px;
 }
 
+
+
 .slidebar {
     width: 220px;
     background-color: #f9fafb;
@@ -153,5 +155,30 @@ tr:nth-child(even) {
     border: 1px solid #d1d5db;
 }
 
+.filtroGrupo input {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #d1d5d1;
+    font-size: 15px;
+}
 
+@media (max-width: 768px) {
+
+    .historico {
+        flex-direction: column;
+    }
+
+    .slidebar {
+        width: 100%;
+    }
+
+    .tabelaArena {
+        overflow-y: auto;
+    }
+
+    .C1, 
+    .C2 {
+        width: 95%;
+    }
+}
 

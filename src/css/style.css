@@ -383,9 +383,28 @@ body {
         align-items: center;
     }
 
+    .card, .card-Saldo {
+        width: 90%;
+    }
+
     .Desc, .Vlr, .Cat {
         flex-direction: column;
         align-items: stretch;
+    }
+
+    .Vlr p:nth-of-type(2),
+    .Cat p:nth-of-type(2),
+    .inputV .prefix {
+        margin-left: 0;
+    }
+
+    .Desc input, 
+    .inputV,
+    .Vlr select,
+    .Cat select,
+    .Cat input {
+        max-width: 100%;
+        width: 100%;
     }
 
     .botao button {
