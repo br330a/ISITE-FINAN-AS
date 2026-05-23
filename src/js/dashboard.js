@@ -68,7 +68,13 @@ const ctxCategoria =
     document.getElementById("graficoCategoria");
 
 
+
+
 // CRIANDO O GRÁFICO
+Chart.register(ChartDataLabels);
+
+
+console.log(ChartDataLabels);
 new Chart(ctxCategoria, {
 
     type: "doughnut",
@@ -96,6 +102,25 @@ new Chart(ctxCategoria, {
 
             legend: {
                 display: false
+            },
+
+            datalabels: {
+                color: "white",
+                font: {
+                    weight: "bold",
+                    size: 16
+                },
+
+                formatter: (value, context) => {
+
+                    const total = context.chart.data.datasets[0].data
+                        .reduce((a, b) => a + b, 0);
+
+                    const porcentagem =
+                        ((value / total) * 100).toFixed(0);
+
+                    return porcentagem + "%";
+                }
             }
         }
     }
@@ -225,6 +250,27 @@ new Chart(ctxEntradaSaida, {
 
             legend: {
                 display: false
+            },
+
+            datalabels: {
+
+                color: "white",
+
+                font: {
+                    weight: "bold",
+                    size: 16
+                },
+
+                formatter: (value, context) => {
+
+                    const total = context.chart.data.datasets[0].data
+                        .reduce((a, b) => a + b, 0);
+
+                    const porcentagem =
+                        ((value / total) * 100).toFixed(0);
+
+                    return porcentagem + "%";
+                }
             }
         }
     }
@@ -371,7 +417,36 @@ new Chart(ctxLinha, {
 
     options: {
 
-        responsive: true
+        responsive: true,
+
+        plugins: {
+
+            datalabels: {
+
+                align: "top",
+
+                anchor: "end",
+
+                offset: 10,
+
+                color: "#111827",
+
+                font: {
+                    weight: "bold",
+                    size: 13
+                },
+
+                formatter: (value) => {
+                    return "R$ " + value.toFixed(2);
+                }
+            }
+        },
+
+        scales: {
+            y: {
+                suggestedMax: Math.max(...dadosLinha) + 100
+            }
+        }
     }
 });
 
@@ -440,6 +515,25 @@ new Chart(ctxMes, {
 
     options: {
 
-        responsive: true
+        responsive: true,
+
+        plugins: {
+            datalabels: {
+
+                anchor: "end",
+                align: "top",
+
+                color: "#111827",
+
+                font: {
+                    weight: "bold",
+                    size: 14
+                },
+
+                formatter: (value) => {
+                    return "R$ " + value.toFixed(2);
+                }
+            }
+        }
     }
 });
