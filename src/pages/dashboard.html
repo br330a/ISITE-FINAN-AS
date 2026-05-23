@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DashBoard</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+    <div class="corpo">
+        <div class="header">
+            <a href="../../index.html" class="botaoVoltar">
+                <img src="../assets/icons/seta.png" class="btnVoltar">
+            </a>
+
+            <h2 class="titulo">DASHBOARD FINANCEIRO</h2>
+        </div>
+
+        <div class="graficos">
+            <div class="graficoCard pizzaCard">
+                <h3>Gastos por Categoria</h3>
+
+                <div class="pizzaConteudo">
+                    <div class="graficoPizza">
+                        <canvas id="graficoCategoria"></canvas>
+                    </div>
+
+                    <div class="legendaCustom" id="legendaCategoria"></div>
+                </div>
+            </div>
+
+
+            <div class="graficoCard pizzaCard">
+                <h3>Entradas vs Saídas</h3>
+
+                <div class="pizzaConteudo">
+                    <div class="graficoPizza">
+                        <canvas id="graficoEntradaSaida"></canvas>
+                    </div>
+
+                    <div class="legendaCustom" id="legendaEntradaSaida"></div>
+                </div>
+            </div>
+
+            <div class="graficoCard">
+                <h3>Evolução do Saldo</h3>
+                <canvas id="graficoLinha"></canvas>
+            </div>
+
+            <div class="graficoCard">
+                <h3>Gastos por Mês</h3>
+                <canvas id="graficoMes"></canvas>
+            </div>
+        </div>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!--importação da biblioteca dos gráficos profissionais-->
+    <script src="../js/dashboard.js"></script>
+</body>
+</html>
