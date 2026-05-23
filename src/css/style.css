@@ -51,7 +51,16 @@ body {
     gap: 20px;
 }
 
-.card {
+.card-Entrada {
+    background-color: #F3F4F6;
+    width: 200px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+    transition: 0.2s;
+}
+
+.card-Saida {
     background-color: #F3F4F6;
     width: 200px;
     border-radius: 12px;
@@ -77,6 +86,14 @@ body {
     transform: translateY(-4px);
 }
 
+.card-Entrada:hover {
+    transform: translateY(-4px);
+}
+
+.card-Saida:hover {
+    transform: translateY(-4px);
+}
+
 
 .card-Saldo h3 {
     color: white;
@@ -91,21 +108,32 @@ body {
     font-size: 25px;
     font-weight: bold;
 }
-.card:hover {
-    transform: translateY(-4px);
-}
 
-.card h3 {
+
+.card-Entrada h3 {
     font-family: 'Poppins', sans-serif;
     font-size: 18px;
     color: #2E4666;
 }
 
-.card p {
+.card-Saida h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    color: #2E4666;
+}
+
+.card-Entrada p {
     font-family: 'Poppins', sans-serif;
     font-size: 22px;
     font-weight: 600;
-    color: #111827;
+    color: #1cc92d;
+}
+
+.card-Saida p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #f21c1c;
 }
 
 /* =========================
