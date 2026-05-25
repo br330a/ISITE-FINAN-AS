@@ -537,3 +537,126 @@ new Chart(ctxMes, {
         }
     }
 });
+
+
+//METAS
+let metas = JSON.parse(localStorage.getItem("metas"));
+
+if(!metas){
+    metas = {
+        vida: {
+            atual: 0,
+            objetivo: 20000
+        },
+
+        variavel: {
+            atual:0,
+            objetivo: 5000
+        }
+    };
+
+    localStorage.setItem(
+        "metas",
+        JSON.stringify(metas)
+    );
+}
+
+const listaMetas =
+    document.getElementById("ListaMetas");
+
+
+// FUNÇÃO PARA CRIAR CARD
+function criarMetaCard(nome, dados, emoji){
+
+    const porcentagem =
+        ((dados.atual / dados.objetivo) * 100);
+
+    
+    const porcentagemFormatada =
+        porcentagem.toFixed(0);
+
+
+    const faltando =
+        dados.objetivo - dados.atual;
+
+
+    listaMetas.innerHTML += `
+
+        <div class="metaCard">
+
+            <div class="metaIcone">
+
+                ${emoji}
+
+            </div>
+
+            <div class="metaInfo">
+
+                <div class="metaNome">
+
+                    ${nome}
+
+                </div>
+
+                <div class="metaLinha">
+
+                    <div class="barraMeta">
+
+                        <div 
+                            class="progressoMeta"
+
+                            style="
+                                width:${porcentagem}%;
+                            "
+                        >
+
+                            ${porcentagemFormatada}%
+
+                        </div>
+
+                    </div>
+
+                    <div class="metaValores">
+
+                        <span class="valorAtual">
+
+                            R$ ${dados.atual.toFixed(2)}
+
+                        </span>
+
+                        /
+
+                        <span class="valorObjetivo">
+
+                            R$ ${dados.objetivo.toFixed(2)}
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="metaFaltando">
+
+                    Faltam
+                    R$ ${faltando.toFixed(2)}
+
+                </div>
+
+            </div>
+
+        </div>
+    `;
+}
+
+criarMetaCard(
+    "Vida",
+    metas.vida,
+    "🏠"
+);
+
+criarMetaCard(
+    "Variável",
+    metas.variavel,
+    "🎯"
+);

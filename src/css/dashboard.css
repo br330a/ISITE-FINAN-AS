@@ -1,14 +1,15 @@
 body {
-    background-color: #E8EBEB;
+    background-color: #e8e9ea;
 }
 
 .corpo {
     width: 95%;
     max-width: 1480px;
     margin: 10px auto;
-    background-color: white;
+    background-color: #f8f7f7;
     border-radius: 10px;
     margin-bottom: 20px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
 }
 
 
@@ -16,10 +17,8 @@ body {
     position: relative;
     display: flex;
     align-items: center;
-    padding: 15px;
+    padding: 10px;
     justify-content: center;
-
-    margin-bottom: 20px;
 }
 
 .header h2 {
@@ -66,10 +65,10 @@ body {
 }
 
 .graficoCard {
-    background-color: #F9FAFB;
+    background-color: white;
     border-radius: 12px;
-    padding: 20px;
-    min-height: 320px;
+    padding: 16px;
+    min-height: 260px;
     box-shadow: 0 4px 14px rgba(0,0,0,0.06);
 
     border: 1px solid #edf0f3;
@@ -80,7 +79,7 @@ body {
     margin-bottom: 20px;
     color: #2E4666;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 22px;
+    font-size: 18px;
 }
 
 
@@ -156,10 +155,159 @@ body {
 }
 
 .graficoPizza canvas {
-    max-width: 260px;
-    max-height: 260px;
+    max-width: 190px;
+    max-height: 190px;
 
     margin: 0 auto;
+}
+
+/*METAS*/
+.metasContainer {
+    margin: 0 20px 20px 20px;
+    background-color: white;
+
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+    border: 1px solid #edf0f3;
+}
+
+.tituloMetas {
+    margin-bottom: 25px;
+    color: #2E4666;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 24px;
+}
+
+.listaMetas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.metaCard {
+    flex: 1;
+    min-width: 500px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    position: relative;
+}
+
+.metaCard:first-child::after{
+    content: "";
+
+    position: absolute;
+
+    right: -12px;
+
+    top: 10%;
+
+    width: 1px;
+
+    height: 80%;
+
+    background-color: #E5E7EB;
+}
+
+.metaIcone {
+    min-width: 85px;
+    width: 68px;
+    height: 68px;
+    border-radius: 18px;
+
+    background-color: #EEF2F7;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    font-size: 34px;
+}
+
+.metaInfo {
+    flex: 1;
+}
+
+.metaNome {
+    font-size: 18px;
+    font-weight: bold;
+    color: #1E293B;
+    margin-bottom: 14px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.metaLinha {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    margin-bottom: 12px;
+}
+
+.barraMeta {
+
+    flex: 1;
+
+    height: 18px;
+
+    background-color: #E5E7EB;
+
+    border-radius: 999px;
+
+    overflow: hidden;
+}
+
+.progressoMeta {
+
+    height: 100%;
+
+    background: linear-gradient(90deg, #22C55E, #4ADE80);
+
+    border-radius: 999px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    padding-right: 10px;
+
+    color: white;
+
+    font-weight: bold;
+
+    font-size: 14px;
+}
+
+.metaValores {
+
+    min-width: 180px;
+
+    font-size: 22px;
+
+    font-weight: bold;
+}
+
+.valorAtual {
+
+    color: #22C55E;
+}
+
+.valorObjetivo {
+
+    color: #64748B;
+}
+
+.metaFaltando {
+
+    color: #6B7280;
+
+    font-size: 18px;
 }
 
 @media (max-width: 900px) {
