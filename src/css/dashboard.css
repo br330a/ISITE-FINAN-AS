@@ -170,6 +170,7 @@ body {
     padding: 12px;
     box-shadow: 0 4px 14px rgba(0,0,0,0.06);
     border: 1px solid #edf0f3;
+
 }
 
 .tituloMetas {
@@ -238,7 +239,6 @@ body {
 }
 
 .metaLinha {
-
     display: flex;
 
     align-items: center;
@@ -249,7 +249,6 @@ body {
 }
 
 .barraMeta {
-
     flex: 1;
 
     height: 18px;
@@ -262,7 +261,6 @@ body {
 }
 
 .progressoMeta {
-
     height: 100%;
 
     background: linear-gradient(90deg, #22C55E, #4ADE80);
@@ -285,7 +283,6 @@ body {
 }
 
 .metaValores {
-
     min-width: 180px;
 
     font-size: 22px;
@@ -294,21 +291,134 @@ body {
 }
 
 .valorAtual {
-
     color: #22C55E;
 }
 
 .valorObjetivo {
-
     color: #64748B;
 }
 
 .metaFaltando {
-
     color: #6B7280;
 
     font-size: 18px;
 }
+
+.metaRodape {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+}
+
+.btnAdicionarMeta {
+    border: none;
+    background: #3B82F6;
+    color: white;
+
+    padding: 10px 16px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+.btnAdicionarMeta:hover {
+    background: #2563EB;
+    transform: scale(1.03);
+}
+
+
+.modalMeta {
+    position: fixed;
+    inset: 0;
+    background: rbga(0,0,0,0.4);
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 999;
+}
+
+.conteudoModalMeta {
+
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 16px;
+
+    width: 350px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.conteudoModalMeta h3 {
+
+    margin: 0;
+
+    color: #1E293B;
+}
+
+.conteudoModalMeta input {
+
+    height: 45px;
+
+    border-radius: 10px;
+
+    border: 1px solid #D1D5DB;
+
+    padding: 0 12px;
+
+    font-size: 16px;
+}
+
+.botoesModal {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+}
+
+.botoesModal button {
+
+    border: none;
+
+    padding: 10px 16px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+}
+
+#cancelarMeta {
+
+    background: #E5E7EB;
+}
+
+#salvarMeta {
+
+    background: #22C55E;
+
+    color: white;
+}
+
 
 @media (max-width: 900px) {
 

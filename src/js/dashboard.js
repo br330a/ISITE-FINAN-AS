@@ -547,11 +547,6 @@ if(!metas){
         vida: {
             atual: 0,
             objetivo: 20000
-        },
-
-        variavel: {
-            atual:0,
-            objetivo: 5000
         }
     };
 
@@ -635,12 +630,17 @@ function criarMetaCard(nome, dados, emoji){
                     </div>
 
                 </div>
+                <div class ="metaRodape">
+                    <div class="metaFaltando">
 
-                <div class="metaFaltando">
+                        Faltam
+                        R$ ${faltando.toFixed(2)}
 
-                    Faltam
-                    R$ ${faltando.toFixed(2)}
+                    </div>
 
+                    <button class = "btnAdicionarMeta">
+                        + Adicionar Valor
+                    </button>
                 </div>
 
             </div>
@@ -655,8 +655,91 @@ criarMetaCard(
     "🏠"
 );
 
-criarMetaCard(
-    "Variável",
-    metas.variavel,
-    "🎯"
-);
+const modalMeta = document.getElementById("modalMeta");
+const inputMeta = document.getElementById("inputMeta");
+
+
+// abrindo modal
+document
+    .querySelector(".btnAdicionarMeta")
+    .addEventListener("click", function(){
+
+        modalMeta.style.display = "flex";
+    });
+
+//fechando modal
+document
+    .getElementById("cancelarMeta")
+    .addEventListener("click", function(){
+
+        modalMeta.style.display = "none";
+    });
+
+//salvando meta
+document
+    .getElementById("salvarMeta")
+    .addEventListener("click", function(){
+
+        const valor =
+            Number(inputMeta.value);
+
+        if(isNaN(valor) || valor <= 0){
+
+            alert("Digite um valor válido");
+
+            return;
+        }
+
+
+        //criando transacao
+        const novaTransacao = {
+
+            descricao: "Meta Vida",
+
+            valor: valor,
+
+            tipo: "saida",
+
+            categoria: "meta",
+
+            destinoMeta: "vida",
+
+            data: new Date()
+                .toISOString()
+                .split("T")[0]
+        };
+
+
+        //adicionando transacao
+        transacoes.push(novaTransacao);
+
+
+        //salvando transacao
+        localStorage.setItem(
+            "transacoes",
+            JSON.stringify(transacoes)
+        );
+
+
+        //atualizando meta
+        metas.vida.atual += valor;
+
+
+        //salvando meta
+        localStorage.setItem(
+            "metas",
+            JSON.stringify(metas)
+        );
+
+
+        //fechando modal
+        modalMeta.style.display = "none";
+
+
+        //limpando input
+        inputMeta.value = "";
+
+
+        //recarregando  
+        location.reload();
+    });
