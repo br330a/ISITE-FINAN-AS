@@ -15,7 +15,93 @@ function carregarDados() {
 
 carregarDados();
 
-console.log(transacoes);
+
+//define e pega o ultimo filtro usado e coloca na box
+const filtro =
+    document.getElementById("filtroPeriodo");
+
+
+const filtroSalvo =
+    localStorage.getItem("filtroDashboard");
+
+
+if(filtroSalvo){
+
+    filtro.value = filtroSalvo;
+}
+
+
+let transacoesFiltradas =
+    [...transacoes];
+
+
+//função de filtrar
+function aplicarFiltro(recarregar = true){
+
+    const valorFiltro =
+        filtro.value;
+
+    const hoje = new Date();
+
+    
+    if(valorFiltro === "todos"){
+
+        transacoesFiltradas =
+            [...transacoes];
+    }
+
+
+    if(valorFiltro === "mes"){
+
+        transacoesFiltradas =
+            transacoes.filter(function(transacao){
+
+                const data =
+                    new Date(transacao.data);
+
+                return (
+                    data.getMonth() ===
+                    hoje.getMonth()
+
+                    &&
+
+                    data.getFullYear() ===
+                    hoje.getFullYear()
+                );
+            });
+    }
+
+
+    if(valorFiltro === "ano"){
+
+        transacoesFiltradas =
+            transacoes.filter(function(transacao){
+
+                const data =
+                    new Date(transacao.data);
+
+                return (
+                    data.getFullYear() ===
+                    hoje.getFullYear()
+                );
+            });
+    }
+
+    localStorage.setItem(
+        "filtroDashboard",
+        valorFiltro
+    );  
+    if(recarregar){
+        location.reload();
+    }
+}
+
+filtro.addEventListener(
+    "change",
+    aplicarFiltro
+);
+
+aplicarFiltro(false);
 
 
 //_____________________________________
@@ -25,7 +111,7 @@ console.log(transacoes);
 const categorias = {};
 
 // SOMA DOS GASTOS POR CATEGORIA
-transacoes.forEach(function(transacao){
+transacoesFiltradas.forEach(function(transacao){
 
     if(transacao.tipo === "saida") {
 
@@ -196,19 +282,23 @@ legendaCategoria.innerHTML += `
 
 let totalEntrada = 0;
 let totalSaida = 0;
+let totalMeta = 0;
 
 
 // CALCULANDO
-transacoes.forEach(function(transacao){
+transacoesFiltradas.forEach(function(transacao){
 
     if(transacao.tipo === "entrada") {
 
         totalEntrada += transacao.valor;
     }
 
-    else {
-
+    if(transacao.tipo === "saida") {
         totalSaida += transacao.valor;
+    }
+
+    if(transacao.tipo === "meta") {
+        totalMeta += transacao.valor;
     }
 });
 
@@ -225,15 +315,16 @@ new Chart(ctxEntradaSaida, {
 
     data: {
 
-        labels: ["Entradas", "Saídas"],
+        labels: ["Entradas", "Saídas", "Meta"],
 
         datasets: [{
 
-            data: [totalEntrada, totalSaida],
+            data: [totalEntrada, totalSaida, totalMeta],
 
             backgroundColor: [
                 "#22C55E",
-                "#EF4444"
+                "#EF4444",
+                "#3B82F6"
             ],
 
             borderWidth: 0
@@ -284,7 +375,7 @@ new Chart(ctxEntradaSaida, {
 const legendaEntradaSaida =
     document.getElementById("legendaEntradaSaida");
 
-const saldo = totalEntrada - totalSaida;
+const saldo = totalEntrada - totalSaida - totalMeta;
 
 legendaEntradaSaida.innerHTML = `
 
@@ -331,6 +422,26 @@ legendaEntradaSaida.innerHTML = `
 
     </div>
 
+    <div class="itemLegenda">
+
+        <div class="infoLegenda">
+
+            <div 
+                class="bolinha"
+                style="background:#3B82F6"
+            ></div>
+
+            <span>Meta</span>
+
+        </div>
+
+        <span class="valorLegenda">
+
+            R$ ${totalMeta.toFixed(2)}
+
+        </span>
+
+    </div>
 
     <div class="totalLegenda">
 
@@ -348,7 +459,7 @@ legendaEntradaSaida.innerHTML = `
 // EVOLUÇÃO DO SALDO
 //_____________________________________
 
-const transacoesOrdenadas = [...transacoes].sort(function(a, b){
+const transacoesOrdenadas = [...transacoesFiltradas].sort(function(a, b){
 
     return new Date(a.data) - new Date(b.data);
 });
@@ -368,8 +479,10 @@ transacoesOrdenadas.forEach(function(transacao){
         saldoAcumulado += transacao.valor;
     }
 
-    else {
-
+    if(
+        transacao.tipo === "saida" ||
+        transacao.tipo === "meta"
+    ){
         saldoAcumulado -= transacao.valor;
     }
 
@@ -459,7 +572,7 @@ const gastosPorMes = {};
 
 
 // SOMANDO GASTOS
-transacoes.forEach(function(transacao){
+transacoesFiltradas.forEach(function(transacao){
 
     if(transacao.tipo === "saida") {
 
@@ -698,7 +811,7 @@ document
 
             valor: valor,
 
-            tipo: "saida",
+            tipo: "meta",
 
             categoria: "meta",
 
