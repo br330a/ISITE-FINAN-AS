@@ -57,6 +57,33 @@ body {
     height: 45px;
 }
 
+.filtroContainer {
+    display: flex;
+    justify-content: left;
+    margin-left: 23px;
+    
+}
+
+#filtroPeriodo {
+    height: 42px;
+
+    padding: 0 14px;
+
+    border-radius: 10px;
+
+    border: 1px solid #D1D5DB;
+
+    background: white;
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+    color: #1E293B;
+
+    cursor: pointer;
+}
+
 .graficos {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -337,7 +364,7 @@ body {
 .modalMeta {
     position: fixed;
     inset: 0;
-    background: rbga(0,0,0,0.4);
+    background: rgba(0,0,0,0.4);
 
     display: none;
     justify-content: center;

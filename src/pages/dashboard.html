@@ -18,6 +18,24 @@
             <h2 class="titulo">DASHBOARD FINANCEIRO</h2>
         </div>
 
+        <div class="filtroContainer">
+            <select id="filtroPeriodo">
+
+                <option value="todos">
+                    Todo período
+                </option>
+
+                <option value="mes">
+                    Este mês
+                </option>
+
+                <option value="ano">
+                    Este ano
+                </option>
+
+            </select>
+        </div>
+
         <div class="graficos">
             <div class="graficoCard pizzaCard">
                 <h3>Gastos por Categoria</h3>
@@ -71,7 +89,7 @@
             <h3>Adicionar valor à Meta</h3>
 
             <input 
-            type="numer"
+            type="number"
             id="inputMeta"
             placeholder="Digite o Valor"
             >
@@ -92,6 +110,6 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1"></script> <!--importação da biblioteca dos gráficos profissionais-->
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
     
-    <script src="../js/dashboard.js"></script>
+    <script type="module" src="../js/dashboardPage.js"></script>
 </body>
 </html>

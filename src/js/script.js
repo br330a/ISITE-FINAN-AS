@@ -1,93 +1,84 @@
-const hoje = new Date();
+import {
+    adicionarTransacao,
+    limparTransacoes
+} from "./transacoes.js";
+
+import { atualizarCards } from "./dashboard.js";
+
+import { pegarDataAtual } from "./utils.js";
 
 document.getElementById("data-atual").innerText =
-    hoje.toLocaleDateString("pt-BR");
+    pegarDataAtual();
 
+
+// INPUTS
 const descricao = document.getElementById("descricao");
 const valor = document.getElementById("valor");
 const tipo = document.getElementById("tipo");
 const categoria = document.getElementById("categoria");
 const data = document.getElementById("data");
+
+
+// BOTÕES
 const botao = document.getElementById("adicionar");
-
-const saldo = document.getElementById("saldo");
-const entrada = document.getElementById("entrada");
-const saida = document.getElementById("saida");
-
 const lixo = document.getElementById("lixo");
 
-let transacoes = [];
 
-function salvarDados() {
-    localStorage.setItem("transacoes", JSON.stringify(transacoes));
-}
-
-function carregarDados() {
-    const dados = localStorage.getItem("transacoes");
-
-    if (dados) {
-        transacoes = JSON.parse(dados);
-    }
-}
-
-carregarDados();
+// INICIALIZAÇÃO
 atualizarCards();
 
-function atualizarCards() {
 
-    let totalEntrada = 0;
-    let totalSaida = 0;
 
-    transacoes.forEach(function(transacao){
-
-        if(transacao.tipo === "entrada") {
-            totalEntrada += transacao.valor;
-        }
-
-        else {
-            totalSaida += transacao.valor;
-        }
-
-    });
-
-    let saldoTotal = totalEntrada - totalSaida;
-
-    saldo.innerText = `R$ ${saldoTotal.toFixed(2)}`;
-    entrada.innerText = `R$ ${totalEntrada.toFixed(2)}`;
-    saida.innerText = `R$ ${totalSaida.toFixed(2)}`;
-}
-
+// ADICIONAR TRANSAÇÃO
 botao.addEventListener("click", function() {
 
     const transacao = {
+
+        id: crypto.randomUUID(),  //id proprio
+
         descricao: descricao.value,
+
         valor: Number(valor.value),
+
         tipo: tipo.value,
+
         categoria: categoria.value,
+
         data: data.value,
     };
 
-    transacoes.push(transacao);
 
-    salvarDados();
+    if (
+        descricao.value === "" ||
+        valor.value === "" ||
+        data.value === ""
+    ) {
+        alert("Preencha todos os campos.");
+
+        return;
+    }
+    adicionarTransacao(transacao)
 
     atualizarCards();
 
-    console.log(transacoes);
 
+    // LIMPAR CAMPOS
     descricao.value = "";
+
     valor.value = "";
+
     tipo.value = "entrada";
+
     categoria.value = "alimentacao";
+
     data.value = "";
 });
 
-lixo.addEventListener("click", function(){
 
-    transacoes = [];
+// LIMPAR TODAS AS TRANSAÇÕES
+lixo.addEventListener("click", function() {
 
-    localStorage.removeItem("transacoes");
+    limparTransacoes();
 
     atualizarCards();
-
 });
