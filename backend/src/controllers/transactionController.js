@@ -52,6 +52,39 @@ async function criarTransacao(req, res) {
 
 }
 
+async function listarTransacoes(req, res) {
+
+    const usuario_id = req.usuario.id;
+
+    try {
+
+        const resultado = await pool.query(
+            `
+            SELECT *
+            FROM transacoes
+            WHERE usuario_id = $1
+            ORDER BY data_transacao DESC
+            `,
+            [usuario_id]
+        );
+
+        return res.status(200).json(
+            resultado.rows
+        );
+
+    } catch (erro) {
+
+        console.error(erro);
+
+        return res.status(500).json({
+            erro: "Erro ao listar transações"
+        });
+
+    }
+
+}
+
 module.exports = {
-    criarTransacao
+    criarTransacao,
+    listarTransacoes
 };

@@ -1,10 +1,2 @@
-POST http://localhost:3000/transacoes
+GET http://localhost:3000/transacoes
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJicnVub2dtaW5pdHRpQGdtYWlsLmNvbSIsImlhdCI6MTc4MDg1NDU5NywiZXhwIjoxNzgxNDU5Mzk3fQ._VY1PBfyaGjMg31s7DjA9pCv0PMi2TTjPRJLd0Nu914
-Content-Type: application/json
-
-{
-    "descricao": "grilleto",
-    "valor": 24.90,
-    "tipo": "alimentacao",
-    "data_transacao": "2026-05-06"
-}

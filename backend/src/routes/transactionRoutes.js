@@ -7,7 +7,8 @@ const autenticarToken = require(
 );
 
 const {
-    criarTransacao
+    criarTransacao,
+    listarTransacoes
 } = require(
     "../controllers/transactionController"
 );
@@ -16,6 +17,12 @@ router.post(
     "/",
     autenticarToken,
     criarTransacao
+);
+
+router.get(
+    "/",
+    autenticarToken,
+    listarTransacoes
 );
 
 module.exports = router;
