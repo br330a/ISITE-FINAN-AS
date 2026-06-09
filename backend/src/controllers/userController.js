@@ -25,8 +25,16 @@ async function criarUsuario(req, res) {
 
         console.error(erro);
 
+        if (erro.code === "23505") {
+
+            return res.status(400).json({
+                erro: "Este email já está cadastrado"
+            });
+
+        }
+
         return res.status(500).json({
-            erro: "Erro ao criar usuário"
+            erro: "Erro interno do servidor"
         });
 
     }
