@@ -3,11 +3,20 @@ const express = require("express");
 
 const userRoutes = require("./routes/userRoutes");
 
+const transactionRoutes = require(
+    "./routes/transactionRoutes"
+);
+
 const app = express();
 
 app.use(express.json());
 
 app.use("/usuarios", userRoutes);
+
+app.use(
+    "/transacoes",
+    transactionRoutes
+);
 
 app.get("/", (req, res) => {
     res.json({

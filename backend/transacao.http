@@ -1,0 +1,10 @@
+POST http://localhost:3000/transacoes
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJicnVub2dtaW5pdHRpQGdtYWlsLmNvbSIsImlhdCI6MTc4MDg1NDU5NywiZXhwIjoxNzgxNDU5Mzk3fQ._VY1PBfyaGjMg31s7DjA9pCv0PMi2TTjPRJLd0Nu914
+Content-Type: application/json
+
+{
+    "descricao": "Salário",
+    "valor": 5000,
+    "tipo": "receita",
+    "data_transacao": "2026-06-07"
+}
