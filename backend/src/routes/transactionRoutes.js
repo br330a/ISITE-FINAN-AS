@@ -8,9 +8,23 @@ const autenticarToken = require(
 
 const {
     criarTransacao,
-    listarTransacoes
+    listarTransacoes,
+    obterResumo,
+    excluirTransacao
 } = require(
     "../controllers/transactionController"
+);
+
+router.get(
+    "/resumo",
+    autenticarToken,
+    obterResumo
+);
+
+router.get(
+    "/",
+    autenticarToken,
+    listarTransacoes
 );
 
 router.post(
@@ -19,10 +33,11 @@ router.post(
     criarTransacao
 );
 
-router.get(
-    "/",
+router.delete(
+    "/:id",
     autenticarToken,
-    listarTransacoes
+    excluirTransacao
 );
+
 
 module.exports = router;

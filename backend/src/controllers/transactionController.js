@@ -8,6 +8,7 @@ async function criarTransacao(req, res) {
         descricao,
         valor,
         tipo,
+        categoria,
         data_transacao
     } = req.body;
 
@@ -21,10 +22,11 @@ async function criarTransacao(req, res) {
                 descricao,
                 valor,
                 tipo,
+                categoria,
                 data_transacao
             )
             VALUES
-            ($1, $2, $3, $4, $5)
+            ($1, $2, $3, $4, $5, $6)
             RETURNING *
             `,
             [
@@ -32,6 +34,7 @@ async function criarTransacao(req, res) {
                 descricao,
                 valor,
                 tipo,
+                categoria,
                 data_transacao
             ]
         );
@@ -84,7 +87,113 @@ async function listarTransacoes(req, res) {
 
 }
 
+async function obterResumo(req, res) {
+
+    const usuario_id = req.usuario.id;
+
+    try {
+
+        const resultado = await pool.query(
+            `
+            SELECT
+                COALESCE(
+                    SUM(
+                        CASE
+                            WHEN tipo = 'receita'
+                            THEN valor
+                            ELSE 0
+                        END
+                    ),
+                    0
+                ) AS receitas,
+
+                COALESCE(
+                    SUM(
+                        CASE
+                            WHEN tipo = 'despesa'
+                            THEN valor
+                            ELSE 0
+                        END
+                    ),
+                    0
+                ) AS despesas
+
+            FROM transacoes
+            WHERE usuario_id = $1
+            `,
+            [usuario_id]
+        );
+
+        const receitas = Number(
+            resultado.rows[0].receitas
+        );
+
+        const despesas = Number(
+            resultado.rows[0].despesas
+        );
+
+        return res.status(200).json({
+            receitas,
+            despesas,
+            saldo: receitas - despesas
+        });
+
+    } catch (erro) {
+
+        console.error(erro);
+
+        return res.status(500).json({
+            erro: "Erro ao obter resumo"
+        });
+
+    }
+
+}
+
+async function excluirTransacao(req, res) {
+
+    const usuario_id = req.usuario.id;
+    const { id } = req.params;
+
+    try {
+
+        const resultado = await pool.query(
+            `
+            DELETE FROM transacoes
+            WHERE id = $1
+            AND usuario_id = $2
+            RETURNING *
+            `,
+            [id, usuario_id]
+        );
+
+        if (resultado.rowCount === 0) {
+
+            return res.status(404).json({
+                erro: "Transação não encontrada"
+            });
+
+        }
+
+        return res.status(200).json({
+            mensagem: "Transação excluída com sucesso"
+        });
+
+    } catch (erro) {
+
+        console.error(erro);
+
+        return res.status(500).json({
+            erro: "Erro ao excluir transação"
+        });
+
+    }
+
+}
+
 module.exports = {
     criarTransacao,
-    listarTransacoes
+    listarTransacoes,
+    obterResumo,
+    excluirTransacao
 };
