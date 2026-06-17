@@ -191,9 +191,72 @@ async function excluirTransacao(req, res) {
 
 }
 
+async function atualizarTransacao(req, res) {
+
+    const usuario_id = req.usuario.id;
+    const { id } = req.params;
+
+    const {
+        descricao,
+        valor,
+        tipo,
+        categoria,
+        data_transacao
+    } = req.body;
+
+    try {
+
+        const resultado = await pool.query(
+            `
+            UPDATE transacoes
+            SET
+                descricao = $1,
+                valor = $2,
+                tipo = $3,
+                categoria = $4,
+                data_transacao = $5
+            WHERE
+                id = $6
+                AND usuario_id = $7
+            RETURNING *
+            `,
+            [
+                descricao,
+                valor,
+                tipo,
+                categoria,
+                data_transacao,
+                id,
+                usuario_id
+            ]
+        );
+
+        if (resultado.rowCount === 0) {
+
+            return res.status(404).json({
+                erro: "Transação não encontrada"
+            });
+
+        }
+
+        return res.status(200).json(resultado.rows[0]);
+
+    } catch (erro) {
+
+        console.error(erro);
+
+        return res.status(500).json({
+            erro: "Erro ao atualizar transação"
+        });
+
+    }
+
+}
+
 module.exports = {
     criarTransacao,
     listarTransacoes,
     obterResumo,
-    excluirTransacao
+    excluirTransacao,
+    atualizarTransacao
 };

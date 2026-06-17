@@ -1,0 +1,11 @@
+PUT http://localhost:3000/transacoes/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJicnVub2dtaW5pdHRpQGdtYWlsLmNvbSIsImlhdCI6MTc4MTU0NTU3MiwiZXhwIjoxNzgyMTUwMzcyfQ.eGh6jl9JmeIrieyFXrM64p5RcQ-P1cFmwuAMe-Pi30w
+Content-Type: application/json
+
+{
+    "descricao": "Uber Aeroporto",
+    "valor": 32.50,
+    "tipo": "despesa",
+    "categoria": "transporte",
+    "data_transacao": "2026-06-15"
+}

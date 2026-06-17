@@ -10,7 +10,8 @@ const {
     criarTransacao,
     listarTransacoes,
     obterResumo,
-    excluirTransacao
+    excluirTransacao,
+    atualizarTransacao
 } = require(
     "../controllers/transactionController"
 );
@@ -31,6 +32,12 @@ router.post(
     "/",
     autenticarToken,
     criarTransacao
+);
+
+router.put(
+    "/:id",
+    autenticarToken,
+    atualizarTransacao
 );
 
 router.delete(
