@@ -1,7 +1,8 @@
-import { getTransacoes } from "./transacoes.js";
+import { buscarResumo } from "./api.js";
 import { formatarMoeda } from "./utils.js";
 
-export function atualizarCards() {
+export async function atualizarCards() {
+
     const saldo = document.getElementById("saldo");
     const entrada = document.getElementById("entrada");
     const saida = document.getElementById("saida");
@@ -10,25 +11,18 @@ export function atualizarCards() {
         return;
     }
 
-    const transacoes = getTransacoes();
+    try {
 
-    let totalEntrada = 0;
-    let totalSaida = 0;
+        const resumo = await buscarResumo();
 
-    transacoes.forEach(function(transacao) {
-        if (transacao.tipo === "entrada") {
-            totalEntrada += transacao.valor;
-        } else if (
-            transacao.tipo === "saida" ||
-            transacao.tipo === "meta"
-        ) {
-            totalSaida += transacao.valor;
-        }
-    });
+        saldo.innerText = formatarMoeda(resumo.saldo);
+        entrada.innerText = formatarMoeda(resumo.receitas);
+        saida.innerText = formatarMoeda(resumo.despesas);
 
-    const saldoTotal = totalEntrada - totalSaida;
+    } catch (erro) {
 
-    saldo.innerText = formatarMoeda(saldoTotal);
-    entrada.innerText = formatarMoeda(totalEntrada);
-    saida.innerText = formatarMoeda(totalSaida);
+        console.error("Erro ao carregar resumo:", erro);
+
+    }
+
 }

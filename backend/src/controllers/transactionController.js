@@ -99,7 +99,7 @@ async function obterResumo(req, res) {
                 COALESCE(
                     SUM(
                         CASE
-                            WHEN tipo = 'receita'
+                            WHEN tipo = 'entrada'
                             THEN valor
                             ELSE 0
                         END
@@ -110,7 +110,7 @@ async function obterResumo(req, res) {
                 COALESCE(
                     SUM(
                         CASE
-                            WHEN tipo = 'despesa'
+                            WHEN tipo = 'saida'
                             THEN valor
                             ELSE 0
                         END
