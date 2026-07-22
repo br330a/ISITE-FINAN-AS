@@ -1,20 +1,3 @@
-// TRANSAÇÕES
-export function carregarTransacoes() {
-
-    return JSON.parse(
-        localStorage.getItem("transacoes")
-    ) || [];
-}
-
-export function salvarTransacoes(transacoes) {
-
-    localStorage.setItem(
-        "transacoes",
-        JSON.stringify(transacoes)
-    );
-}
-
-
 // METAS
 export function carregarMetas() {
 

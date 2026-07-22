@@ -1,15 +1,18 @@
 import {
     carregarMetas,
-    salvarMetas,
-    salvarTransacoes
+    salvarMetas
 }
 from "./storage.js";
+
+import {
+    criarTransacao
+}
+from "./api.js";
 
 import {
     formatarMoeda
 }
 from "./utils.js";
-
 
 
 export function iniciarMetas(transacoes){
@@ -154,7 +157,7 @@ export function iniciarMetas(transacoes){
 
     document
         .getElementById("salvarMeta")
-        .addEventListener("click", function(){
+        .addEventListener("click", async function(){
 
             const valor =
                 Number(inputMeta.value);
@@ -187,9 +190,7 @@ export function iniciarMetas(transacoes){
             };
 
 
-            transacoes.push(novaTransacao);
-
-            salvarTransacoes(transacoes);
+            await criarTransacao(novaTransacao);
 
 
             metas.vida.atual += valor;

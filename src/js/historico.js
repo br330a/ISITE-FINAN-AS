@@ -1,7 +1,7 @@
 import {
-    getTransacoes,
-    deletarTransacao
-} from "./transacoes.js";
+    buscarTransacoes,
+    excluirTransacao
+} from "./api.js";
 
 import {
     formatarMoeda,
@@ -146,9 +146,9 @@ function criarLinhaTransacao(transacao) {
 
 
 // ATUALIZAR TABELA
-function atualizarTabela() {
+async function atualizarTabela() {
 
-    const transacoes = getTransacoes();
+    const transacoes = await buscarTransacoes();
 
     historicoBody.innerHTML = "";
 
@@ -271,13 +271,13 @@ dataFinal.addEventListener("change", atualizarTabela);
 
 
 // EVENTO DE EXCLUSÃO
-historicoBody.addEventListener("click", function(event) {
+historicoBody.addEventListener("click", async function(event) {
 
     if(event.target.classList.contains("btnExcluir")) {
 
         const id = event.target.dataset.id;
 
-        deletarTransacao(id);
+        await excluirTransacao(id);
 
         atualizarTabela();
     }

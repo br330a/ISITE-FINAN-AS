@@ -24,14 +24,6 @@ export function adicionarTransacao(transacao) {
 }
 
 
-// LIMPAR TODAS
-export function limparTransacoes() {
-
-    transacoes = [];
-
-    salvarTransacoes(transacoes);
-}
-
 export function deletarTransacao(id) {
 
     transacoes = transacoes.filter(function(transacao) {

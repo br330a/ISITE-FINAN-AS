@@ -1,12 +1,11 @@
-import { getTransacoes } from "./transacoes.js";
+import { buscarTransacoes } from "./api.js";
 import { criarGraficos } from "./graficos.js";
 import { iniciarMetas } from "./metas.js";
 
 const filtroPeriodo = document.getElementById("filtroPeriodo");
 
-const transacoes = getTransacoes();
 
-function filtrarTransacoesPorPeriodo() {
+function filtrarTransacoesPorPeriodo(transacoes) {
     const periodo = filtroPeriodo.value;
 
     if (periodo === "todos") {
@@ -35,13 +34,18 @@ function filtrarTransacoesPorPeriodo() {
     });
 }
 
-function atualizarDashboard() {
-    const transacoesFiltradas = filtrarTransacoesPorPeriodo();
+async function atualizarDashboard() {
+
+    const transacoes = await buscarTransacoes();
+
+    const transacoesFiltradas = filtrarTransacoesPorPeriodo(transacoes);
 
     criarGraficos(transacoesFiltradas);
+
+    iniciarMetas(transacoes);
+
 }
 
 atualizarDashboard();
-iniciarMetas(transacoes);
 
 filtroPeriodo.addEventListener("change", atualizarDashboard);

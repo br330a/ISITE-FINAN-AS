@@ -1,12 +1,2 @@
-POST http://localhost:3000/transacoes
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJicnVub2dtaW5pdHRpQGdtYWlsLmNvbSIsImlhdCI6MTc4MTU0NTU3MiwiZXhwIjoxNzgyMTUwMzcyfQ.eGh6jl9JmeIrieyFXrM64p5RcQ-P1cFmwuAMe-Pi30w
-Content-Type: application/json
-
-{
-    "descricao": "Salário",
-    "valor": 5000,
-    "tipo": "receita",
-    "categoria": "salario",
-    "data_transacao": "2026-06-07"
-}
-
+GET http://localhost:3000/transacoes/resumo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJicnVub2dtaW5pdHRpQGdtYWlsLmNvbSIsImlhdCI6MTc4NDMwNTQzOCwiZXhwIjoxNzg0OTEwMjM4fQ.Xc8hPz3n5oxYtWzScZlrsoHg42wXaihk5wBg-cdX7b0

@@ -16,8 +16,8 @@ export async function atualizarCards() {
         const resumo = await buscarResumo();
 
         saldo.innerText = formatarMoeda(resumo.saldo);
-        entrada.innerText = formatarMoeda(resumo.receitas);
-        saida.innerText = formatarMoeda(resumo.despesas);
+        entrada.innerText = formatarMoeda(resumo.entradas);
+        saida.innerText = formatarMoeda(resumo.saidas);
 
     } catch (erro) {
 

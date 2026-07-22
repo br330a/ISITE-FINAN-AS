@@ -105,7 +105,7 @@ async function obterResumo(req, res) {
                         END
                     ),
                     0
-                ) AS receitas,
+                ) AS entradas,
 
                 COALESCE(
                     SUM(
@@ -116,7 +116,7 @@ async function obterResumo(req, res) {
                         END
                     ),
                     0
-                ) AS despesas
+                ) AS saidas
 
             FROM transacoes
             WHERE usuario_id = $1
@@ -124,18 +124,18 @@ async function obterResumo(req, res) {
             [usuario_id]
         );
 
-        const receitas = Number(
-            resultado.rows[0].receitas
+        const entradas = Number(
+            resultado.rows[0].entradas
         );
 
-        const despesas = Number(
-            resultado.rows[0].despesas
+        const saidas = Number(
+            resultado.rows[0].saidas
         );
 
         return res.status(200).json({
-            receitas,
-            despesas,
-            saldo: receitas - despesas
+            entradas,
+            saidas,
+            saldo: entradas - saidas
         });
 
     } catch (erro) {

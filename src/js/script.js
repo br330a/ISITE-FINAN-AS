@@ -1,11 +1,12 @@
-import {
-    adicionarTransacao,
-    limparTransacoes
-} from "./transacoes.js";
-
 import { atualizarCards } from "./dashboard.js";
 
 import { pegarDataAtual } from "./utils.js";
+
+import { verificarAutenticacao } from "./auth.js";
+
+import { criarTransacao } from "./api.js";
+
+verificarAutenticacao();
 
 document.getElementById("data-atual").innerText =
     pegarDataAtual();
@@ -21,7 +22,6 @@ const data = document.getElementById("data");
 
 // BOTÕES
 const botao = document.getElementById("adicionar");
-const lixo = document.getElementById("lixo");
 
 
 // INICIALIZAÇÃO
@@ -30,7 +30,7 @@ atualizarCards();
 
 
 // ADICIONAR TRANSAÇÃO
-botao.addEventListener("click", function() {
+botao.addEventListener("click", async function() {
 
     const transacao = {
 
@@ -44,7 +44,7 @@ botao.addEventListener("click", function() {
 
         categoria: categoria.value,
 
-        data: data.value,
+        data_transacao: data.value,
     };
 
 
@@ -57,9 +57,21 @@ botao.addEventListener("click", function() {
 
         return;
     }
-    adicionarTransacao(transacao)
+    try {
 
-    atualizarCards();
+        await criarTransacao(transacao);
+
+        atualizarCards();
+
+    } catch (erro) {
+
+        console.error(erro);
+
+        alert("Erro ao cadastrar transação.");
+
+        return;
+
+    }
 
 
     // LIMPAR CAMPOS
@@ -72,13 +84,4 @@ botao.addEventListener("click", function() {
     categoria.value = "alimentacao";
 
     data.value = "";
-});
-
-
-// LIMPAR TODAS AS TRANSAÇÕES
-lixo.addEventListener("click", function() {
-
-    limparTransacoes();
-
-    atualizarCards();
 });
