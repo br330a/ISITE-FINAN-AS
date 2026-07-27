@@ -22,6 +22,15 @@ const dataInicial = document.getElementById("dataInicial");
 
 const dataFinal = document.getElementById("dataFinal");
 
+const modalExcluir =
+    document.getElementById("modalExcluir");
+
+const cancelarExcluir =
+    document.getElementById("cancelarExcluir");
+
+const confirmarExcluir =
+    document.getElementById("confirmarExcluir");
+
 
 // FORMATAR MÊS
 function formatarMes(data) {
@@ -277,8 +286,22 @@ historicoBody.addEventListener("click", async function(event) {
 
         const id = event.target.dataset.id;
 
-        await excluirTransacao(id);
+        modalExcluir.style.display = "flex";
 
-        atualizarTabela();
+        confirmarExcluir.onclick = async function () {
+
+            await excluirTransacao(id);
+
+            modalExcluir.style.display = "none";
+
+            atualizarTabela();
+
+        };
+
+        cancelarExcluir.onclick = function () {
+
+            modalExcluir.style.display = "none";
+
+        };
     }
 });

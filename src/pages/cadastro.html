@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Login | ISITE Finanças</title>
+    <title>Cadastro | ISITE Finanças</title>
 
     <link rel="stylesheet" href="../css/login.css">
 
@@ -23,12 +23,27 @@
                 <h1>ISITE Finanças</h1>
 
                 <p>
-                    Faça login para acessar sua conta.
+                    Crie sua conta.
                 </p>
 
             </div>
 
             <form id="form-login">
+
+                <div class="campo">
+
+                    <label for="nome">
+                        Nome
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nome"
+                        placeholder="Digite seu nome"
+                        required
+                    >
+
+                </div>
 
                 <div class="campo">
 
@@ -69,9 +84,33 @@
 
                 </div>
 
+                <div class="campo">
+
+                    <label for="confirmarSenha">
+                        Confirmar senha
+                    </label>
+
+                    <div class="senhaContainer">
+
+                        <input
+                            type="password"
+                            id="confirmarSenha"
+                            placeholder="Confirme sua senha"
+                            required
+                        >
+
+                        <i
+                            id="toggleConfirmarSenha"
+                            class="fa-solid fa-eye"
+                        ></i>
+
+                    </div>
+
+                </div>
+
                 <button type="submit">
 
-                    Entrar
+                    Cadastrar
 
                 </button>
 
@@ -81,11 +120,11 @@
 
             <p class="cadastro">
 
-                Não possui uma conta?
+                Já possui uma conta?
 
-                <a href="./cadastro.html">
+                <a href="./login.html">
 
-                    Criar conta
+                    Login
 
                 </a>
 
@@ -94,7 +133,7 @@
         </section>
 
     </main>
-    <script type="module" src="../js/login.js"></script>
+    <script type="module" src="../js/cadastro.js"></script>
 </body>
 
 </html>

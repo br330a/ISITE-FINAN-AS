@@ -2,7 +2,10 @@ import { atualizarCards } from "./dashboard.js";
 
 import { pegarDataAtual } from "./utils.js";
 
-import { verificarAutenticacao } from "./auth.js";
+import {
+    verificarAutenticacao,
+    logout
+} from "./auth.js";
 
 import { criarTransacao } from "./api.js";
 
@@ -22,6 +25,19 @@ const data = document.getElementById("data");
 
 // BOTÕES
 const botao = document.getElementById("adicionar");
+
+const botaoLogout =
+    document.getElementById("logout");
+
+
+const modalLogout =
+    document.getElementById("modalConfirmacao");
+
+const cancelarLogout =
+    document.getElementById("cancelarLogout");
+
+const confirmarLogout =
+    document.getElementById("confirmarLogout"); 
 
 
 // INICIALIZAÇÃO
@@ -84,4 +100,24 @@ botao.addEventListener("click", async function() {
     categoria.value = "alimentacao";
 
     data.value = "";
+});
+
+//botao logout
+botaoLogout.addEventListener("click", function () {
+
+    modalLogout.style.display = "flex";
+
+});
+
+
+cancelarLogout.addEventListener("click", function () {
+
+    modalLogout.style.display = "none";
+
+});
+
+confirmarLogout.addEventListener("click", function () {
+
+    logout();
+
 });

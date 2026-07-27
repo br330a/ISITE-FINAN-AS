@@ -162,3 +162,56 @@ button:hover {
 
     text-decoration: underline;
 }
+
+.mensagemErro{
+
+    color:#d9534f;
+
+    font-size:14px;
+
+    margin-top:15px;
+
+    text-align:center;
+
+    font-weight:600;
+
+    min-height:20px;
+
+}
+
+
+.senhaContainer{
+
+    position:relative;
+
+}
+
+.senhaContainer input{
+
+    width:100%;
+
+}
+
+#toggleSenha{
+
+    position:absolute;
+
+    right:15px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    cursor:pointer;
+
+    color:#777;
+
+    transition:.2s;
+
+}
+
+#toggleSenha:hover{
+
+    color:#222;
+
+}

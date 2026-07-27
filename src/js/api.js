@@ -124,6 +124,35 @@ export async function login(email, senha) {
     return dados;
 }
 
+export async function cadastrarUsuario(usuario) {
+
+    const resposta = await fetch(
+        `${API_URL}/usuarios`,
+        {
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify(usuario)
+        }
+    );
+
+    const dados = await resposta.json();
+
+    if (!resposta.ok) {
+
+        throw new Error(
+            dados.erro || "Erro ao cadastrar usuário"
+        );
+
+    }
+
+    return dados;
+
+}
+
 export async function excluirTransacao(id) {
 
     const resposta = await fetch(
