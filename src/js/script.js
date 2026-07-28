@@ -9,6 +9,8 @@ import {
 
 import { criarTransacao } from "./api.js";
 
+import { mostrarToast } from "./toast.js";
+
 verificarAutenticacao();
 
 document.getElementById("data-atual").innerText =
@@ -69,7 +71,10 @@ botao.addEventListener("click", async function() {
         valor.value === "" ||
         data.value === ""
     ) {
-        alert("Preencha todos os campos.");
+        mostrarToast(
+            "Preencha todos os campos.",
+            "erro"
+        );
 
         return;
     }
@@ -79,11 +84,19 @@ botao.addEventListener("click", async function() {
 
         atualizarCards();
 
+        mostrarToast(
+            "Transação cadastrada com sucesso!",
+            "sucesso"
+        );
+
     } catch (erro) {
 
         console.error(erro);
 
-        alert("Erro ao cadastrar transação.");
+        mostrarToast(
+            "Erro ao cadastrar transação.",
+            "erro"
+        );
 
         return;
 

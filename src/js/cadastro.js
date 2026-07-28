@@ -115,4 +115,4 @@ toggleConfirmarSenha.addEventListener("click", function () {
 
     }
 
-});
+}); 

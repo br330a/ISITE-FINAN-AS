@@ -1,0 +1,89 @@
+.toast {
+
+    position: fixed;
+
+    top: 20px;
+
+    right: 20px;
+
+    padding: 14px 20px;
+
+    border-radius: 10px;
+
+    color: white;
+
+    font-weight: 600;
+
+    font-size: 15px;
+
+    opacity: 0;
+
+    transform: translateY(-20px);
+
+    transition: all .3s ease;
+
+    z-index: 9999;
+
+    box-shadow: 0 6px 20px rgba(0,0,0,.2);
+
+}
+
+.toast.sucesso {
+
+    background: #22c55e;
+
+}
+
+.toast.erro {
+
+    background: #ef4444;
+
+}
+
+.toast.mostrar {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+}
+
+.toast {
+
+    overflow: hidden;
+
+}
+
+.toastBarra {
+
+    position: absolute;
+
+    bottom: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 4px;
+
+    background: rgba(255,255,255,.8);
+
+    animation: diminuirBarra 3s linear forwards;
+
+}
+
+@keyframes diminuirBarra {
+
+    from {
+
+        width: 100%;
+
+    }
+
+    to {
+
+        width: 0%;
+
+    }
+
+}

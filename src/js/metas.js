@@ -14,6 +14,8 @@ import {
 }
 from "./utils.js";
 
+import { mostrarToast } from "./toast.js";
+
 
 export function iniciarMetas(transacoes){
 
@@ -164,7 +166,10 @@ export function iniciarMetas(transacoes){
 
             if(isNaN(valor) || valor <= 0){
 
-                alert("Digite um valor válido");
+                mostrarToast(
+                    "Digite um valor válido.",
+                    "erro"
+                );
 
                 return;
             }

@@ -8,6 +8,8 @@ import {
     formatarData
 } from "./utils.js";
 
+import { mostrarToast } from "./toast.js";
+
 
 // ELEMENTOS
 const historicoBody = document.getElementById("historico-body");
@@ -293,6 +295,11 @@ historicoBody.addEventListener("click", async function(event) {
             await excluirTransacao(id);
 
             modalExcluir.style.display = "none";
+
+            mostrarToast(
+                "Transação excluída com sucesso!",
+                "sucesso"
+            );
 
             atualizarTabela();
 
