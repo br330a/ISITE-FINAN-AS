@@ -450,33 +450,53 @@ export function criarGraficos(transacoesFiltradas){
         return new Date(a.data) - new Date(b.data);
     });
 
-
     let saldoAcumulado = 0;
 
-    const labelsLinha = [];
-    const dadosLinha = [];
+    const saldoPorMes = {};
 
-
-    // CALCULANDO
     transacoesOrdenadas.forEach(function(transacao){
 
-        if(transacao.tipo === "entrada") {
+        if(transacao.tipo === "entrada"){
 
             saldoAcumulado += transacao.valor;
+
         }
 
         if(
+
             transacao.tipo === "saida" ||
+
             transacao.tipo === "meta"
+
         ){
+
             saldoAcumulado -= transacao.valor;
+
         }
 
-        labelsLinha.push(transacao.data);
+        const data = new Date(transacao.data);
 
-        dadosLinha.push(saldoAcumulado);
+        const chaveMes = data.toLocaleDateString(
+
+            "pt-BR",
+
+            {
+
+                month: "short",
+
+                year: "2-digit"
+
+            }
+
+        );
+
+        saldoPorMes[chaveMes] = saldoAcumulado;
+
     });
 
+    const labelsLinha = Object.keys(saldoPorMes);
+
+    const dadosLinha = Object.values(saldoPorMes);
 
     // PEGANDO CANVAS
     const ctxLinha =
@@ -619,5 +639,134 @@ export function criarGraficos(transacoesFiltradas){
         }
     }));
 
+    atualizarIndicadores(transacoesFiltradas);
+
+}
+
+function atualizarIndicadores(transacoes) {
+
+    const gastos =
+        transacoes.filter(t => t.tipo === "saida");
+
+    const receitas =
+        transacoes.filter(t => t.tipo === "entrada");
+
+    
+    const mapaCategorias = {
+
+        alimentacao: "🍔 Alimentação",
+
+        transporte: "🚗 Transporte",
+
+        moradia: "🏠 Moradia",
+
+        contas: "💡 Contas",
+
+        mercado: "🛒 Mercado",
+
+        estudos: "🎓 Estudos",
+
+        trabalho: "💼 Trabalho",
+
+        saude: "💊 Saúde",
+
+        academia: "🏋️ Academia",
+
+        lazer: "🎮 Lazer",
+
+        assinaturas: "🎬 Assinaturas",
+
+        compras: "🛍️ Compras",
+
+        roupas: "👕 Roupas",
+
+        pets: "🐶 Pets",
+
+        viagem: "✈️ Viagem",
+
+        presentes: "🎁 Presentes",
+
+        namorada: "❤️ Namorada",
+
+        investimentos: "💰 Investimentos",
+
+        salario: "💵 Salário",
+
+        renda_extra: "📈 Renda Extra",
+
+        outros: "📦 Outros"
+
+    };
+
+    // Maior gasto
+    if (gastos.length) {
+
+        const maior = gastos.reduce((a, b) =>
+            a.valor > b.valor ? a : b
+        );
+
+        document.getElementById("maiorGasto").innerText =
+            formatarMoeda(maior.valor);
+
+        document.getElementById("categoriaMaiorGasto").innerText =
+            mapaCategorias[maior.categoria] ??
+            maior.categoria;
+
+    }
+
+
+    // Maior receita
+    if (receitas.length) {
+
+        const maior = receitas.reduce((a, b) =>
+            a.valor > b.valor ? a : b
+        );
+
+        document.getElementById("maiorReceita").innerText =
+            formatarMoeda(maior.valor);
+
+        document.getElementById("categoriaMaiorReceita").innerText =
+            mapaCategorias[maior.categoria] ??
+            maior.categoria;
+
+    }
+
+
+    // Categoria líder
+
+    const totaisCategorias = {};
+
+    gastos.forEach(t => {
+
+        totaisCategorias[t.categoria] =
+            (totaisCategorias[t.categoria] || 0) + t.valor;
+
+    });
+
+    let categoria = "-";
+    let maiorValor = 0;
+
+    Object.entries(totaisCategorias).forEach(([nome, valor]) => {
+
+        if (valor > maiorValor) {
+
+            categoria = nome;
+            maiorValor = valor;
+
+        }
+
+    });
+
+    document.getElementById("categoriaLider").innerText =
+        mapaCategorias[categoria] ??
+        categoria;
+
+    document.getElementById("valorCategoriaLider").innerText =
+        formatarMoeda(maiorValor);
+
+
+
+    document.getElementById("totalTransacoes").innerText =
+        transacoes.length;
 
 }

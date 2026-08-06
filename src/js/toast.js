@@ -1,15 +1,26 @@
-export function mostrarToast(mensagem, tipo = "sucesso") {
+export function mostrarToast(mensagem, tipo = "sucesso"){
+
+    document
+        .querySelectorAll(".toast")
+        .forEach(function(toast){
+
+            toast.remove();
+
+        });
 
     const toast =
         document.createElement("div");
 
-    toast.classList.add("toast");
-
-    toast.classList.add(tipo);
+    toast.className =
+        `toast ${tipo}`;
 
     toast.innerHTML = `
 
-        <span>${mensagem}</span>
+        <span>
+
+            ${mensagem}
+
+        </span>
 
         <div class="toastBarra"></div>
 
@@ -17,22 +28,22 @@ export function mostrarToast(mensagem, tipo = "sucesso") {
 
     document.body.appendChild(toast);
 
-    setTimeout(function () {
+    requestAnimationFrame(function(){
 
         toast.classList.add("mostrar");
 
-    }, 100);
+    });
 
-    setTimeout(function () {
+    setTimeout(function(){
 
         toast.classList.remove("mostrar");
 
-        setTimeout(function () {
+        setTimeout(function(){
 
             toast.remove();
 
-        }, 300);
+        },350);
 
-    }, 3000);
+    },3000);
 
 }

@@ -110,7 +110,7 @@ async function obterResumo(req, res) {
                 COALESCE(
                     SUM(
                         CASE
-                            WHEN tipo = 'saida'
+                            WHEN tipo IN ('saida', 'meta')
                             THEN valor
                             ELSE 0
                         END

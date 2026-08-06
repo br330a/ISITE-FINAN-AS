@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DashBoard</title>
     <link rel="stylesheet" href="../css/dashboard.css">
-
+    <link rel="stylesheet" href="../css/toast.css">
     
 </head>
 <body>
@@ -34,6 +34,109 @@
                 </option>
 
             </select>
+        </div>
+
+        <div class="indicadores">
+
+            <div class="indicadorCard">
+
+                <span class="iconeIndicador">
+                    💸
+                </span>
+
+                <div>
+
+                    <p class="tituloIndicador">
+                        Maior gasto
+                    </p>
+
+                    <h3 id="maiorGasto">
+                        —
+                    </h3>
+
+                    <small id="categoriaMaiorGasto">
+                        —
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="indicadorCard">
+
+                <span class="iconeIndicador">
+                    💵
+                </span>
+
+                <div>
+
+                    <p class="tituloIndicador">
+                        Maior receita
+                    </p>
+
+                    <h3 id="maiorReceita">
+                        —
+                    </h3>
+
+                    <small id="categoriaMaiorReceita">
+                        —
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="indicadorCard">
+
+                <span class="iconeIndicador">
+                    📊
+                </span>
+
+                <div>
+
+                    <p class="tituloIndicador">
+                        Categoria líder
+                    </p>
+
+                    <h3 id="categoriaLider">
+                        —
+                    </h3>
+
+                    <small id="valorCategoriaLider">
+                        —
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="indicadorCard">
+
+                <span class="iconeIndicador">
+                    🧾
+                </span>
+
+                <div>
+
+                    <p class="tituloIndicador">
+                        Transações
+                    </p>
+
+                    <h3 id="totalTransacoes">
+                        —
+                    </h3>
+
+                    <small>
+                        no período
+                    </small>
+
+                </div>
+
+            </div>
+
         </div>
 
         <div class="graficos">
@@ -74,9 +177,21 @@
         </div>
 
         <div class="metasContainer">
-            <h3 class="tituloMetas">Metas Financeiras</h3>
+
+            <div class="headerMetas">
+
+                <h3 class="tituloMetas">
+                    Metas Financeiras
+                </h3>
+
+                <button id="btnNovaMeta" class="btnNovaMeta">
+                    + Nova Meta
+                </button>
+
+            </div>
 
             <div class="listaMetas" id="ListaMetas"></div>
+
         </div>
 
 
@@ -86,7 +201,9 @@
 
     <div class="modalMeta" id="modalMeta">
         <div class="conteudoModalMeta">
-            <h3>Adicionar valor à Meta</h3>
+            <h3 id="tituloModalMeta">
+                Adicionar valor à Meta
+            </h3>
 
             <input 
             type="number"
@@ -104,6 +221,91 @@
                 </button>
             </div>
         </div>
+    </div>
+
+
+    <div class="modalMeta" id="modalExcluirMeta">
+
+        <div class="conteudoModalMeta">
+
+            <div class="iconeExcluir">
+
+                🗑️
+
+            </div>
+
+            <h3>
+
+                Excluir Meta
+
+            </h3>
+
+            <p class="textoExcluir">
+
+                Esta ação não poderá ser desfeita.
+
+            </p>
+
+            <p id="nomeMetaExcluir" class="nomeMetaExcluir"></p>
+
+            <div class="botoesModal">
+
+                <button
+                    id="cancelarExcluirMeta"
+                    class="btnCancelarExcluir"
+                >
+
+                    Cancelar
+
+                </button>
+
+                <button
+                    id="confirmarExcluirMeta"
+                    class="btnConfirmarExcluir"
+                >
+
+                    Sim, excluir
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="modalMeta" id="modalNovaMeta">
+
+        <div class="conteudoModalMeta">
+
+            <h3>Nova Meta</h3>
+
+            <input
+                id="nomeMeta"
+                type="text"
+                placeholder="Nome da meta"
+            >
+
+            <input
+                id="objetivoMeta"
+                type="number"
+                placeholder="Valor objetivo"
+            >
+
+            <div class="botoesModal">
+
+                <button id="cancelarNovaMeta">
+                    Cancelar
+                </button>
+
+                <button id="criarNovaMeta">
+                    Criar Meta
+                </button>
+
+            </div>
+
+        </div>
+
     </div>
 
 

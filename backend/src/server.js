@@ -5,9 +5,9 @@ const cors = require("cors");
 
 const userRoutes = require("./routes/userRoutes");
 
-const transactionRoutes = require(
-    "./routes/transactionRoutes"
-);
+const transactionRoutes = require("./routes/transactionRoutes");
+
+const metaRoutes = require("./routes/metaRoutes");
 
 const app = express();
 app.use(cors());
@@ -19,6 +19,8 @@ app.use(
     "/transacoes",
     transactionRoutes
 );
+
+app.use("/metas", metaRoutes);
 
 app.get("/", (req, res) => {
     res.json({

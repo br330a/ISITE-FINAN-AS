@@ -1,0 +1,2 @@
+DELETE http://localhost:3000/metas/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJicnVub2dtaW5pdHRpQGdtYWlsLmNvbSIsImlhdCI6MTc4NTI4NTYzNCwiZXhwIjoxNzg1ODkwNDM0fQ.P5gzgQcRYEXvCEtbPjAbEQsj8f3mIUmRzN_ZQmyNZtQ   

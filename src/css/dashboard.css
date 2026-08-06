@@ -340,9 +340,10 @@ body {
 
 .btnAdicionarMeta {
     border: none;
-    background: #3B82F6;
+    background: #22C55E;
     color: white;
 
+    flex: 1;
     padding: 10px 16px;
 
     border-radius: 10px;
@@ -356,8 +357,81 @@ body {
 }
 
 .btnAdicionarMeta:hover {
-    background: #2563EB;
+    background: #16A34A;
     transform: scale(1.03);
+}
+
+
+.acoesMeta{
+
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 12px;
+
+}
+
+
+.btnResgatarMeta{
+
+    border: none;
+
+    background: #3B82F6;
+
+    color: white;
+
+    flex: 1;
+
+    padding: 10px 16px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    transition: .2s;
+
+}
+
+.btnResgatarMeta:hover{
+
+    background: #2563EB;
+
+    transform: scale(1.03);
+
+}
+
+
+.btnExcluirMeta{
+
+    border: none;
+
+    background: #EF4444;
+
+    color: white;
+
+    width: 42px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    transition: .2s;
+
+}
+
+.btnExcluirMeta:hover{
+
+    background: #DC2626;
+
+    transform: scale(1.05);
+
 }
 
 
@@ -378,6 +452,8 @@ body {
     background: white;
 
     padding: 25px;
+
+    text-align: center;
 
     border-radius: 16px;
 
@@ -447,6 +523,247 @@ body {
 }
 
 
+.iconeExcluir{
+
+    width:70px;
+    height:70px;
+
+    margin:0 auto 20px;
+
+    border-radius:50%;
+
+    background:#FEE2E2;
+
+    color:#DC2626;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:34px;
+
+}
+
+.textoExcluir{
+
+    color:#6B7280;
+
+    text-align:center;
+
+    margin:10px 0 5px;
+
+}
+
+.nomeMetaExcluir{
+
+    text-align:center;
+
+    font-weight:700;
+
+    color:#111827;
+
+    margin-bottom:25px;
+
+    font-size:18px;
+
+}
+
+.btnCancelarExcluir{
+
+    flex:1;
+
+    background:#F3F4F6;
+
+    border:none;
+
+    padding:12px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+}
+
+.btnCancelarExcluir:hover{
+
+    background:#E5E7EB;
+
+}
+
+.btnConfirmarExcluir{
+
+    flex:1;
+
+    background:#DC2626;
+
+    color:white;
+
+    border:none;
+
+    padding:12px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+}
+
+.btnConfirmarExcluir:hover{
+
+    background:#B91C1C;
+
+}
+
+
+.indicadores{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:20px;
+
+    padding:20px;
+
+}
+
+.indicadorCard{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:24px;
+
+    display:flex;
+
+    gap:18px;
+
+    align-items:center;
+
+    border:1px solid #edf2f7;
+
+    box-shadow:0 8px 24px rgba(0,0,0,.06);
+
+    transition:.25s;
+
+}
+
+.indicadorCard:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 15px 30px rgba(0,0,0,.08);
+
+}
+
+.iconeIndicador{
+
+    width:68px;
+
+    height:68px;
+
+    border-radius:18px;
+
+    background:linear-gradient(135deg,#dbeafe,#eff6ff);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:34px;
+
+}
+
+.tituloIndicador{
+
+    margin:0;
+
+    color:#64748B;
+
+    font-size:14px;
+
+    font-family:'Segoe UI',sans-serif;
+
+}
+
+.indicadorCard h3{
+
+    margin:6px 0;
+
+    color:#1E293B;
+
+    font-size:24px;
+
+    font-family:'Segoe UI',sans-serif;
+
+}
+
+.indicadorCard small{
+
+    color:#64748B;
+
+    font-size:14px;
+
+}
+
+.headerMetas{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:25px;
+
+}
+
+.btnNovaMeta{
+
+    border:none;
+
+    background:#3B82F6;
+
+    color:white;
+
+    padding:12px 20px;
+
+    border-radius:10px;
+
+    font-family:'Segoe UI',sans-serif;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+    box-shadow:0 4px 10px rgba(59,130,246,.20);
+
+}
+
+.btnNovaMeta:hover{
+
+    background:#2563EB;
+
+    transform:translateY(-2px);
+
+}
+
+
+
+
 @media (max-width: 900px) {
 
     .graficos {
@@ -459,6 +776,11 @@ body {
 
     .legendaCustom {
         width: 100%;
+    }
+
+    .indicadores{
+        grid-template-columns:1fr;
+
     }
 
 }

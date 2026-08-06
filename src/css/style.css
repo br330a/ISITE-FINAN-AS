@@ -87,7 +87,7 @@ body {
 .card-Entrada {
     background-color: #F3F4F6;
     width: 200px;
-    border-radius: 12px;
+    border-radius: 16px;
     text-align: center;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
     transition: 0.2s;
@@ -96,27 +96,26 @@ body {
 .card-Saida {
     background-color: #F3F4F6;
     width: 200px;
-    border-radius: 12px;
+    border-radius: 16px;
     text-align: center;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
     transition: 0.2s;
 }
 
 .card-Saldo {
-    background: linear-gradient(135deg, #4b6c96, #3B82F6);
+    background: #2563eb;
     transform: scale(1.05);
 
-    box-shadow: 0 6px 14px rgba(59, 130, 246, 0.25);
+    box-shadow: 0 10px 25px rgba(37, 99, 235, .25);
 
     width: 200px;
-    border-radius: 12px;
+    border-radius: 16px;
     text-align: center;
-
     transition: 0.2s;
 }
 
 .card-Saldo:hover {
-    transform: translateY(-4px);
+    transform: translateY(4px);
 }
 
 .card-Entrada:hover {
@@ -144,26 +143,26 @@ body {
 
 
 .card-Entrada h3 {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     font-size: 18px;
     color: #2E4666;
 }
 
 .card-Saida h3 {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     font-size: 18px;
     color: #2E4666;
 }
 
 .card-Entrada p {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     font-size: 22px;
     font-weight: 600;
     color: #1cc92d;
 }
 
 .card-Saida p {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     font-size: 22px;
     font-weight: 600;
     color: #f21c1c;
@@ -216,7 +215,7 @@ body {
 }
 
 .Desc p {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     font-size: 18px;
     font-weight: 535;
     color: #2E4666;
@@ -226,10 +225,10 @@ body {
     max-width: 645px;
     flex: 1;
 
-    padding: 8px 12px;
+    padding: 12px 16px;
 
-    border-radius: 4px;
-    border: 1px solid #ccc;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
 
     font-size: 16px;
     box-sizing: border-box;
@@ -246,7 +245,7 @@ body {
 }
 
 .Vlr p {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     font-size: 18px;
     font-weight: 535;
     color: #2E4666;
@@ -267,16 +266,16 @@ body {
 .inputV .prefix {
     background-color: #E0E0E0;
 
-    padding: 8px 12px;
+    padding: 12px 16px;
 
-    border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
     color: #2E4666;
 
-    border: 1px solid #ccc;
+    border: 1px solid #d1d5db;
     border-right: none;
 
     margin-left: 39px;
@@ -284,13 +283,13 @@ body {
 
 .inputV input {
     margin: 0;
-    padding: 8px 12px;
+    padding: 12px 16px;
 
-    border: 1px solid #ccc;
+    border: 1px solid #d1d5db;
     border-left: none;
 
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 
     font-size: 16px;
 
@@ -303,10 +302,10 @@ body {
     flex: 1;
 
     margin: 0;
-    padding: 8px 12px;
+    padding: 12px 16px;
 
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
 
     font-size: 16px;
     color: rgb(77, 77, 77);
@@ -323,7 +322,7 @@ body {
 }
 
 .Cat p {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     font-size: 18px;
     font-weight: 535;
     color: #2E4666;
@@ -338,10 +337,10 @@ body {
     flex: 1;
 
     margin: 0;
-    padding: 8px 12px;
+    padding: 12px 16px;
 
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
 
     font-size: 16px;
     color: rgb(77, 77, 77);
@@ -351,15 +350,38 @@ body {
     max-width: 295px;
     flex: 1;
 
-    padding: 8px 12px;
+    padding: 12px 16px;
 
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
 
     font-size: 16px;
     box-sizing: border-box;
 
     color: rgb(77, 77, 77);
+}
+
+
+.Desc input:focus,
+.inputV input:focus,
+.Cat input:focus,
+select:focus {
+
+    outline: none;
+
+    border-color: #2563eb;
+
+    box-shadow: 0 0 0 4px rgba(37,99,235,.12);
+
+}
+
+.Desc input,
+.inputV input,
+.Cat input,
+select {
+
+    transition: .25s;
+
 }
 
 /* =========================
@@ -382,18 +404,22 @@ body {
     padding: 10px;
     width: 360px;
 
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     font-size: 18px;
 
     border: none;
-    border-radius: 4px;
+    border-radius: 12px;
 
     cursor: pointer;
-    transition: 0.2s;
+    transition: 0.25s;
 }
 
 .botao button:hover {
     background-color: rgb(40, 40, 220);
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 20px rgba(37,99,235,.25);
 }
 
 .botao button:active {
@@ -456,7 +482,9 @@ body {
 
     height:100%;
 
-    background:rgba(0,0,0,.45);
+    background: rgba(17, 24, 39, .45);
+
+    backdrop-filter: blur(4px);
 
     justify-content:center;
 
@@ -470,16 +498,17 @@ body {
 
     background:white;
 
-    padding:30px;
+    padding:35px;
 
-    border-radius:14px;
+    border-radius:20px;
 
     width:360px;
 
     text-align:center;
 
-    box-shadow:0 10px 35px rgba(0,0,0,.25);
+    box-shadow:0 25px 60px rgba(0,0,0,.18);
 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .modalBox h2{
@@ -490,7 +519,15 @@ body {
 
 .modalBox p{
 
-    margin-bottom:25px;
+    font-size: 16px;
+
+    color: #6b7280;
+
+    line-height: 1.6;
+
+    text-align: center;
+
+    margin-bottom: 28px;
 
 }
 
@@ -519,11 +556,21 @@ body {
 
     font-weight:bold;
 
+    transition: .25s;
+
 }
 
 .btnCancelar{
 
     background:#d9d9d9;
+
+}
+
+.btnCancelar:hover {
+
+    background: #e5e7eb;
+
+    transform: translateY(-2px);
 
 }
 
@@ -534,6 +581,16 @@ body {
     color:white;
 
 }
+
+.btnConfirmar:hover {
+
+    background: #b73c38;
+
+    transform: translateY(-2px);
+
+}
+
+
 
 
 @media (max-width: 768px) {

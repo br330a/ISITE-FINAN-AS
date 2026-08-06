@@ -20,7 +20,20 @@
 
         <div class="historico"> 
             <div class="slidebar">
-                <h3>Filtros</h3>
+                <div class="headerFiltros">
+
+                    <h3>Filtros</h3>
+
+                    <button
+                        id="btnLimparFiltros"
+                        class="btnLimparFiltros"
+                    >
+
+                        🧹 Limpar
+
+                    </button>
+
+                </div>
 
                 <div class="filtroGrupo">
                     <label>Tipo</label>
@@ -36,11 +49,7 @@
                     
                     <select id="filtroCategoria">
                         <option value="todos">Todas</option>
-                        <option value="alimentacao">Alimentação</option>
-                        <option value="lazer">Lazer</option>
-                        <option value="namorada">Namorada</option>
-                        <option value="transporte">Transporte</option>
-                        <option value="estudos">Estudos</option>
+                        
 
                     </select>
                 </div>
@@ -119,6 +128,139 @@
         </div>
 
     </div>
+
+    <div id="modalEditar" class="modalConfirmacao">
+
+        <div class="modalEditarBox">
+
+            <h2>✏️ Editar Transação</h2>
+
+            <div class="campo">
+
+                <label for="editarDescricao">
+                    Descrição
+                </label>
+
+                <input
+                    type="text"
+                    id="editarDescricao"
+                >
+
+            </div>
+
+            <div class="campo">
+
+                <label for="editarValor">
+                    Valor
+                </label>
+
+                <input
+                    type="number"
+                    id="editarValor"
+                >
+
+            </div>
+
+            <div class="campoLinha">
+
+                <div class="campo">
+
+                    <label for="editarTipo">
+                        Tipo
+                    </label>
+
+                    <select id="editarTipo">
+
+                        <option value="entrada">
+                            Entrada
+                        </option>
+
+                        <option value="saida">
+                            Saída
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="campo">
+
+                    <label for="editarCategoria">
+                        Categoria
+                    </label>
+
+                    <select id="editarCategoria">
+
+                        <option value="todos">Todas</option>
+
+                        <option value="alimentacao">🍔 Alimentação</option>
+                        <option value="transporte">🚗 Transporte</option>
+                        <option value="moradia">🏠 Moradia</option>
+                        <option value="contas">💡 Contas</option>
+                        <option value="mercado">🛒 Mercado</option>
+                        <option value="estudos">🎓 Estudos</option>
+                        <option value="trabalho">💼 Trabalho</option>
+                        <option value="saude">💊 Saúde</option>
+                        <option value="academia">🏋️ Academia</option>
+                        <option value="lazer">🎮 Lazer</option>
+                        <option value="assinaturas">🎬 Assinaturas</option>
+                        <option value="compras">🛍️ Compras</option>
+                        <option value="roupas">👕 Roupas</option>
+                        <option value="pets">🐶 Pets</option>
+                        <option value="viagem">✈️ Viagem</option>
+                        <option value="presentes">🎁 Presentes</option>
+                        <option value="namorada">❤️ Namorada</option>
+                        <option value="investimentos">💰 Investimentos</option>
+                        <option value="salario">💵 Salário</option>
+                        <option value="renda_extra">📈 Renda Extra</option>
+                        <option value="outros">📦 Outros</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+            <div class="campo">
+
+                <label for="editarData">
+                    Data
+                </label>
+
+                <input
+                    type="date"
+                    id="editarData"
+                >
+
+            </div>
+
+            <div class="modalBotoes">
+
+                <button
+                    id="cancelarEditar"
+                    class="btnCancelar"
+                >
+                    Cancelar
+                </button>
+
+                <button
+                    id="salvarEditar"
+                    class="btnConfirmar"
+                >
+                    Salvar Alterações
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+    
     <script type="module" src="../js/historico.js"></script>
 </body>
 </html>
