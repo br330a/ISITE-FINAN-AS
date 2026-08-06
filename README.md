@@ -18,6 +18,7 @@ Sistema web de controle financeiro desenvolvido para gerenciamento de receitas, 
 
 <img width="1900" height="912" alt="image" src="https://github.com/user-attachments/assets/1ecbdb2d-6bef-4ce4-b1fc-75f83b982ae6" />
 
+<img width="1902" height="747" alt="image" src="https://github.com/user-attachments/assets/c33087ef-f905-46f9-98c4-d9d24f4749de" />
 
 
 ---
