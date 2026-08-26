@@ -13,7 +13,10 @@ import {
 }
 from "./api.js";
 
-import { formatarMoeda } from "./utils.js";
+import {
+    formatarMoeda,
+    pegarDataAtualISO
+} from "./utils.js";
 
 import { mostrarToast } from "./toast.js";
 
@@ -126,10 +129,7 @@ confirmarExcluirMeta.addEventListener(
 
                     categoria: "meta",
 
-                    data_transacao:
-                        new Date()
-                        .toISOString()
-                        .split("T")[0]
+                    data_transacao: pegarDataAtualISO()
 
                 });
 
@@ -691,10 +691,7 @@ salvarMeta.addEventListener(
 
                     categoria: "meta",
 
-                    data_transacao:
-                        new Date()
-                        .toISOString()
-                        .split("T")[0]
+                    data_transacao: pegarDataAtualISO()
 
                 });
                 console.log("DEPOIS criarTransacao");
@@ -714,10 +711,7 @@ salvarMeta.addEventListener(
 
                     categoria: "meta",
 
-                    data_transacao:
-                        new Date()
-                        .toISOString()
-                        .split("T")[0]
+                    data_transacao: pegarDataAtualISO()
 
                 });
 

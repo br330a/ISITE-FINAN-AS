@@ -403,7 +403,7 @@ async function atualizarTabela() {
     // ORDENAR POR DATA
     transacoesFiltradas.sort(function(a, b) {
 
-        return new Date(b.data) - new Date(a.data);
+        return b.data.localeCompare(a.data);
     });
 
 
@@ -660,7 +660,7 @@ function gerarPDFMes(mes, transacoes){
 
         return [
 
-            transacao.data,
+            formatarData(transacao.data),
 
             transacao.descricao,
 

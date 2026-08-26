@@ -85,7 +85,9 @@ function calcularGastosPorMes(transacoes) {
 
         if(transacao.tipo === "saida") {
 
-            const data = new Date(transacao.data);
+            const data = new Date(
+                transacao.data + "T00:00:00"
+            );
 
             const mes = data.toLocaleDateString("pt-BR", {
                 month: "short"
@@ -447,7 +449,7 @@ export function criarGraficos(transacoesFiltradas){
 
     const transacoesOrdenadas = [...transacoesFiltradas].sort(function(a, b){
 
-        return new Date(a.data) - new Date(b.data);
+        return a.data.localeCompare(b.data);
     });
 
     let saldoAcumulado = 0;
@@ -474,7 +476,9 @@ export function criarGraficos(transacoesFiltradas){
 
         }
 
-        const data = new Date(transacao.data);
+        const data = new Date(
+            transacao.data + "T00:00:00"
+        );
 
         const chaveMes = data.toLocaleDateString(
 
