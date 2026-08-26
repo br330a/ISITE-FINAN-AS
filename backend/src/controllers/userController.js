@@ -14,7 +14,7 @@ async function criarUsuario(req, res) {
             INSERT INTO usuarios
             (nome, email, senha)
             VALUES ($1, $2, $3)
-            RETURNING *
+            RETURNING id, nome, email
             `,
             [nome, email, senhaHash]
         );
